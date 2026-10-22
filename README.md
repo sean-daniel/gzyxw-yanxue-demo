@@ -2,6 +2,12 @@
 
 面向研学课程与研学机构浏览场景的静态 Web 产品原型，包含课程筛选、机构列表、机构详情、响应式布局和本地图片资源。
 
+## 在线预览
+
+- GitHub Pages：<https://sean-daniel.github.io/gzyxw-yanxue-demo/>
+- 机构列表：<https://sean-daniel.github.io/gzyxw-yanxue-demo/#institutions>
+- 机构详情：<https://sean-daniel.github.io/gzyxw-yanxue-demo/#institution/2103288400209571842>
+
 ## 本地运行
 
 无需构建工具，直接打开 `index.html`，或在当前目录启动静态服务器：
