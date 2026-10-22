@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="贵州省研学综合服务网研学课程页高保真 HTML Demo"
+    />
+    <title>研学课程｜贵州省研学综合服务网</title>
+    <link rel="icon" type="image/png" href="assets/logo-title.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M7.62 2.75a2 2 0 0 1 2.46.45l1.73 2.1a2 2 0 0 1 .1 2.49l-1.1 1.48a13.4 13.4 0 0 0 4.92 4.92l1.48-1.1a2 2 0 0 1 2.49.1l2.1 1.73a2 2 0 0 1 .45 2.46l-.7 1.62a3.32 3.32 0 0 1-3.87 1.86C9.92 18.64 5.36 14.08 3.14 6.32a3.32 3.32 0 0 1 1.86-3.87l1.62-.7Z" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.8" />
+        <path d="m16 16 4.2 4.2" />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m7 9.5 5 5 5-5" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="7.4" r="3.8" />
+        <path d="M4.7 20.1c.55-4.13 3.25-6.2 7.3-6.2s6.75 2.07 7.3 6.2" />
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="3.5" y="5.2" width="17" height="15.3" rx="2.2" />
+        <path d="M7.4 3.5v3.7M16.6 3.5v3.7M3.8 9.4h16.4" />
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M20 10c0 5.35-5.32 9.53-8 12-2.68-2.47-8-6.65-8-12a8 8 0 1 1 16 0Z" />
+        <circle cx="12" cy="10" r="2.6" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14M13.5 6.5 19 12l-5.5 5.5" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m5 5 14 14M19 5 5 19" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="topbar">
+        <div class="topbar-inner content-width">
+          <div class="welcome-wrap">
+            <span>欢迎来到贵州省研学综合服务网</span>
+            <span class="area-select">
+              <svg class="area-pin" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" />
+                <circle cx="12" cy="9" r="2.2" />
+              </svg>
+              贵州省
+              <svg class="area-chevron" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+            </span>
+          </div>
+          <div class="topbar-actions">
+            <span class="hotline">
+              <svg aria-hidden="true"><use href="#icon-phone"></use></svg>
+              咨询热线：0851-86726533
+            </span>
+            <span class="topbar-divider" aria-hidden="true"></span>
+            <button class="topbar-link" type="button" data-demo-action="登录">注册｜登录</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-row content-width">
+        <a class="brand" href="https://gzyxw.com/index.html" aria-label="贵州省研学综合服务网首页">
+          <img src="assets/logo-title.png" alt="贵州省研学综合服务网" />
+        </a>
+        <form class="search-box" id="searchForm" role="search">
+          <svg aria-hidden="true"><use href="#icon-search"></use></svg>
+          <input
+            id="searchInput"
+            type="search"
+            autocomplete="off"
+            placeholder="请输入基地、服务机构或研学课程关键字"
+            aria-label="搜索研学课程"
+          />
+          <button class="search-clear" id="searchClear" type="button" aria-label="清空搜索">
+            <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+          </button>
+        </form>
+      </div>
+
+      <nav class="main-nav content-width" aria-label="主导航">
+        <a href="https://gzyxw.com/index.html">首页</a>
+        <a class="active" href="#courses" data-nav-view="courses" aria-current="page">研学课程</a>
+        <a href="https://gzyxw.com/bases">研学基地</a>
+        <a href="#institutions" data-nav-view="institutions">研学机构</a>
+        <a href="https://gzyxw.com/mapBases">研学地图</a>
+        <a href="https://gzyxw.com/tenders">需求公示</a>
+        <a href="https://gzyxw.com/articles">新闻资讯</a>
+      </nav>
+    </header>
+
+    <main id="coursesView" class="courses-page">
+      <section class="filter-section content-width" aria-label="课程筛选">
+        <div id="courseFilters" class="filter-container"></div>
+      </section>
+
+      <section class="courses-section content-width" aria-labelledby="courseListTitle">
+        <div class="results-bar">
+          <div>
+            <h1 id="courseListTitle">研学课程</h1>
+            <p id="activeFilters" class="active-filters">全部课程</p>
+          </div>
+          <div class="results-summary">
+            <span>共 <strong id="resultCount">0</strong> 门课程</span>
+            <button id="resetFilters" type="button">重置筛选</button>
+          </div>
+        </div>
+
+        <div id="courseGrid" class="course-grid" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state" hidden>
+          <span class="empty-icon">?</span>
+          <h2>没有找到符合条件的课程</h2>
+          <p>可以尝试减少筛选条件，或搜索其他关键词。</p>
+          <button id="emptyReset" type="button">查看全部课程</button>
+        </div>
+        <nav id="pagination" class="pagination" aria-label="课程分页"></nav>
+      </section>
+
+      <section class="recommend-section content-width" aria-labelledby="baseTitle">
+        <div class="recommend-header">
+          <div class="recommend-title-wrap">
+            <img src="assets/icons/base.png" alt="" />
+            <h2 id="baseTitle">推荐研学基地</h2>
+          </div>
+          <a href="https://gzyxw.com/bases">更多研学基地 <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+        </div>
+        <div id="baseGrid" class="base-grid"></div>
+      </section>
+    </main>
+
+    <main id="institutionsView" class="institutions-page" hidden>
+      <section class="filter-section content-width" aria-label="研学机构筛选">
+        <div class="filter-container">
+          <div class="filter-group" role="group" aria-label="所属区县">
+            <div class="filter-label">所属区县</div>
+            <div id="institutionAreas" class="filter-options"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="institutions-section content-width" aria-labelledby="institutionListTitle">
+        <div class="results-bar">
+          <div>
+            <h1 id="institutionListTitle">研学机构</h1>
+            <p id="institutionActiveFilters" class="active-filters">全部机构</p>
+          </div>
+          <div class="results-summary">
+            <span>共 <strong id="institutionCount">0</strong> 家机构</span>
+            <button id="institutionReset" type="button">重置筛选</button>
+          </div>
+        </div>
+
+        <div id="institutionGrid" class="institution-grid" aria-live="polite"></div>
+        <div id="institutionEmpty" class="empty-state" hidden>
+          <span class="empty-icon">?</span>
+          <h2>该区县暂未收录研学机构</h2>
+          <p>可以切换其他区县，或清空搜索关键词后再试。</p>
+          <button id="institutionEmptyReset" type="button">查看全部机构</button>
+        </div>
+        <nav id="institutionPagination" class="pagination" aria-label="研学机构分页"></nav>
+      </section>
+    </main>
+
+    <main id="institutionDetailView" class="institution-detail-page" hidden>
+      <div class="content-width">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="#courses">首页</a>
+          <span aria-hidden="true">›</span>
+          <a href="#institutions">研学机构</a>
+          <span aria-hidden="true">›</span>
+          <span id="institutionBreadcrumb">机构详情</span>
+        </nav>
+
+        <section class="institution-profile" aria-labelledby="institutionDetailTitle">
+          <div class="institution-gallery">
+            <div class="gallery-main">
+              <img id="institutionMainImage" src="" alt="" />
+              <button id="galleryPrev" class="gallery-arrow gallery-prev" type="button" aria-label="上一张图片">
+                <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+              <button id="galleryNext" class="gallery-arrow gallery-next" type="button" aria-label="下一张图片">
+                <svg aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+              <span id="galleryCount" class="gallery-count">1 / 1</span>
+            </div>
+            <div id="institutionThumbs" class="gallery-thumbs"></div>
+          </div>
+
+          <div class="institution-intro">
+            <div class="institution-title-row">
+              <span class="institution-type-tag">机构</span>
+              <h1 id="institutionDetailTitle"></h1>
+            </div>
+            <div id="institutionDescription" class="institution-description"></div>
+            <div class="institution-contact-row">
+              <span class="institution-area-label" id="institutionAreaLabel"></span>
+              <span class="institution-address">
+                <svg aria-hidden="true"><use href="#icon-pin"></use></svg>
+                <span id="institutionDetailAddress"></span>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="institution-courses-panel" aria-labelledby="institutionCoursesTitle">
+          <div class="institution-panel-head">
+            <h2 id="institutionCoursesTitle">研学课程</h2>
+            <span><strong id="institutionCourseCount">0</strong> 门课程</span>
+          </div>
+          <div id="institutionDetailCourses" class="course-grid"></div>
+          <div id="institutionCourseEmpty" class="empty-state" hidden>
+            <span class="empty-icon">?</span>
+            <h2>暂无课程信息</h2>
+            <p>该机构正在完善研学课程内容。</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner content-width">
+        <div class="footer-copy">
+          <h2>贵州省研学综合服务网</h2>
+          <p><span>指导单位：</span>贵州省委宣传部｜贵州省教育厅｜贵州省文化和旅游厅｜贵州省公安厅｜贵州省交通运输厅</p>
+          <p><span>联合支持单位：</span>贵州省科学技术协会｜中国共产主义青年团贵州省委员会｜贵州广播电视台｜贵阳市人民政府｜遵义市人民政府｜安顺市人民政府</p>
+          <p><span>备案号：</span>黔ICP备2026002388号</p>
+        </div>
+        <div class="footer-qr">
+          <img src="assets/qrcode.jpg" alt="贵州省研学综合服务网小程序二维码" />
+          <span>扫码进入小程序</span>
+        </div>
+      </div>
+    </footer>
+
+    <aside class="assistant-float" aria-label="知小驿研学咨询助手">
+      <button class="assistant-character" type="button" aria-label="向知小驿咨询">
+        <img src="assets/assistant-character.png" alt="" />
+      </button>
+      <div class="assistant-card">
+        <img class="assistant-logo" src="assets/assistant.png" alt="知小驿" />
+        <span class="assistant-divider"></span>
+        <img class="assistant-qr" src="assets/qrcode.jpg" alt="微信小程序二维码" />
+        <strong>扫一扫</strong>
+        <span>进入小程序</span>
+      </div>
+    </aside>
+
+    <dialog id="courseDialog" class="course-dialog">
+      <button class="dialog-close" id="dialogClose" type="button" aria-label="关闭课程详情">
+        <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div id="dialogContent"></div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="courses-data.js"></script>
+    <script src="institutions-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
