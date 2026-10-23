@@ -11,11 +11,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "9小时",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省研学实践教育基地",
-    "price": 210
+    "price": 210,
+    "courseTime": "8小时"
   },
   {
     "id": "2112431550647316481",
@@ -28,11 +27,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "2.5",
-    "durationBand": "2",
-    "durationText": "2天",
     "providerType": "机构",
     "address": "贵州省研学实践教育基地",
-    "price": 228
+    "price": 228,
+    "courseTime": "3小时"
   },
   {
     "id": "2111995269693911041",
@@ -46,11 +44,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "11",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省研学实践教育基地",
-    "price": 268
+    "price": 268,
+    "courseTime": "8小时"
   },
   {
     "id": "2111991294986891266",
@@ -64,11 +61,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "10",
-    "durationBand": "3",
-    "durationText": "3天",
     "providerType": "机构",
     "address": "贵州省研学实践教育基地",
-    "price": 228
+    "price": 228,
+    "courseTime": "8小时"
   },
   {
     "id": "2110267022977134593",
@@ -81,11 +77,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "9小时",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省研学实践教育基地",
-    "price": 268
+    "price": 268,
+    "courseTime": "8小时"
   },
   {
     "id": "2110261580314046465",
@@ -97,11 +92,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "9小时",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省研学实践教育基地",
-    "price": 288
+    "price": 288,
+    "courseTime": "8小时"
   },
   {
     "id": "2110293306721562625",
@@ -116,11 +110,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "10",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省研学实践教育基地",
-    "price": 228
+    "price": 228,
+    "courseTime": "8小时"
   },
   {
     "id": "2109484892160389121",
@@ -134,11 +127,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "10",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省研学实践教育基地",
-    "price": 288
+    "price": 288,
+    "courseTime": "8小时"
   },
   {
     "id": "2108723372641034241",
@@ -153,11 +145,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "8",
-    "durationBand": "3",
-    "durationText": "3天",
     "providerType": "基地",
     "address": "贵州省安顺市关岭布依族苗族自治县",
-    "price": 228
+    "price": 228,
+    "courseTime": "8小时"
   },
   {
     "id": "2100148119487770625",
@@ -170,11 +161,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "8",
-    "durationBand": "3",
-    "durationText": "3天",
     "providerType": "机构",
     "address": "贵州省安顺市关岭布依族苗族自治县",
-    "price": 288
+    "price": 288,
+    "courseTime": "8小时"
   },
   {
     "id": "2102367830539370497",
@@ -187,11 +177,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "8",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市关岭布依族苗族自治县",
-    "price": 220
+    "price": 220,
+    "courseTime": "8小时"
   },
   {
     "id": "2044238245702447105",
@@ -204,11 +193,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市清镇市站街镇三河村云站路46号",
-    "price": 99
+    "price": 99,
+    "courseTime": "1小时"
   },
   {
     "id": "2044234979937660929",
@@ -220,11 +208,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省贵阳市花溪区石板镇天河潭度假村内",
-    "price": 299
+    "price": 299,
+    "courseTime": "1小时"
   },
   {
     "id": "2036741846100594689",
@@ -235,11 +222,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "2",
-    "durationBand": "2",
-    "durationText": "2天",
     "providerType": "机构",
     "address": "贵州省贵阳市开阳县南江乡龙广村",
-    "price": 145
+    "price": 145,
+    "courseTime": "2小时"
   },
   {
     "id": "2036716995088470018",
@@ -250,11 +236,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省贵阳市息烽县永阳街道猫洞村",
-    "price": 88
+    "price": 88,
+    "courseTime": "1小时"
   },
   {
     "id": "2034479669104832514",
@@ -266,11 +251,10 @@ window.COURSES = [
       "小学三四年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市修文县阳明街道办格致路3号",
-    "price": 100
+    "price": 100,
+    "courseTime": "1小时"
   },
   {
     "id": "2035982541948702722",
@@ -281,11 +265,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省贵阳市南明区双龙航空港经济区兴业西路北多彩贵州风景眼文创园",
-    "price": 90
+    "price": 90,
+    "courseTime": "1小时"
   },
   {
     "id": "2044229085413814274",
@@ -298,11 +281,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市南明区多彩贵州城内极地海洋世界",
-    "price": 99
+    "price": 99,
+    "courseTime": "1小时"
   },
   {
     "id": "2044231610896527361",
@@ -314,11 +296,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省贵阳市修文县六屯镇大木村新村1号",
-    "price": 49
+    "price": 49,
+    "courseTime": "1小时"
   },
   {
     "id": "2042430224678723586",
@@ -329,11 +310,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市开阳县龙岗镇坝子村贵州南贡河生态园内",
-    "price": 399
+    "price": 399,
+    "courseTime": "1小时"
   },
   {
     "id": "2044243472207884290",
@@ -346,11 +326,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省贵阳市观山湖区云潭南路607号",
-    "price": 59
+    "price": 59,
+    "courseTime": "1小时"
   },
   {
     "id": "2044224906028953602",
@@ -361,11 +340,10 @@ window.COURSES = [
       "小学三四年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市南明区沙冲南路202号贵阳药用植物园",
-    "price": 399
+    "price": 399,
+    "courseTime": "1小时"
   },
   {
     "id": "2042441571961348097",
@@ -380,11 +358,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "2",
-    "durationBand": "2",
-    "durationText": "2天",
     "providerType": "基地",
     "address": "贵州省贵阳市修文县六屯镇桃源河景区",
-    "price": 599
+    "price": 599,
+    "courseTime": "2小时"
   },
   {
     "id": "2100138460815159298",
@@ -398,11 +375,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "8",
-    "durationBand": "3",
-    "durationText": "3天",
     "providerType": "机构",
     "address": "贵州省安顺市关岭布依族苗族自治县",
-    "price": 238
+    "price": 238,
+    "courseTime": "8小时"
   },
   {
     "id": "2100162154552590338",
@@ -414,11 +390,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "8",
-    "durationBand": "3",
-    "durationText": "3天",
     "providerType": "基地",
     "address": "贵州省安顺市关岭布依族苗族自治县",
-    "price": 220
+    "price": 220,
+    "courseTime": "8小时"
   },
   {
     "id": "2087799882249973761",
@@ -433,11 +408,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1小时",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "机构",
     "address": "贵州省安顺市镇宁布依族苗族自治县镇宁沙子乡弄染村弄染组25号(弄染长征文化爱国主义研学基地内)",
-    "price": 20
+    "price": 20,
+    "courseTime": "1小时"
   },
   {
     "id": "2087791780591087617",
@@ -452,11 +426,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1小时",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市镇宁布依族苗族自治县镇宁沙子乡弄染村弄染组25号(弄染长征文化爱国主义研学基地内)",
-    "price": 25
+    "price": 25,
+    "courseTime": "1小时"
   },
   {
     "id": "2087802503257960450",
@@ -471,11 +444,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1小时",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "机构",
     "address": "贵州省安顺市镇宁布依族苗族自治县镇宁沙子乡弄染村弄染组25号(弄染长征文化爱国主义研学基地内)",
-    "price": 30
+    "price": 30,
+    "courseTime": "1小时"
   },
   {
     "id": "2087733401126481921",
@@ -490,11 +462,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1.5小时",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市镇宁布依族苗族自治县镇宁沙子乡弄染村弄染组25号(弄染长征文化爱国主义研学基地内)",
-    "price": 50
+    "price": 50,
+    "courseTime": "2小时"
   },
   {
     "id": "2089279090419625985",
@@ -509,11 +480,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "1小时"
   },
   {
     "id": "2089278418970275842",
@@ -527,11 +497,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 5
+    "price": 5,
+    "courseTime": "2小时"
   },
   {
     "id": "2089278024969940993",
@@ -545,11 +514,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 5
+    "price": 5,
+    "courseTime": "2小时"
   },
   {
     "id": "2089277670467366914",
@@ -564,11 +532,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "2小时"
   },
   {
     "id": "2089277067565527042",
@@ -583,11 +550,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "1小时"
   },
   {
     "id": "2089276726509891585",
@@ -602,11 +568,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "1小时"
   },
   {
     "id": "2089276406790680578",
@@ -621,11 +586,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "1小时"
   },
   {
     "id": "2089275935497711618",
@@ -637,11 +601,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "2",
-    "durationBand": "2",
-    "durationText": "2天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "2小时"
   },
   {
     "id": "2089275112248111105",
@@ -655,11 +618,10 @@ window.COURSES = [
       "小学三四年级"
     ],
     "rawDuration": "2",
-    "durationBand": "2",
-    "durationText": "2天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "2小时"
   },
   {
     "id": "2089274723436130306",
@@ -673,11 +635,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 15
+    "price": 15,
+    "courseTime": "2小时"
   },
   {
     "id": "2089273539681906690",
@@ -691,11 +652,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 0
+    "price": 0,
+    "courseTime": "2小时"
   },
   {
     "id": "2089272787404124161",
@@ -710,11 +670,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 0
+    "price": 0,
+    "courseTime": "1小时"
   },
   {
     "id": "2089271933196365826",
@@ -729,11 +688,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区洞上河组",
-    "price": 25
+    "price": 25,
+    "courseTime": "2小时"
   },
   {
     "id": "2087831607235620865",
@@ -748,11 +706,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区",
-    "price": 160
+    "price": 160,
+    "courseTime": "1小时"
   },
   {
     "id": "2087833697932587009",
@@ -767,11 +724,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市西秀区东关街道武当山路安顺市自然资源局旁",
-    "price": 50
+    "price": 50,
+    "courseTime": "2小时"
   },
   {
     "id": "2087826250866143234",
@@ -785,11 +741,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市西秀区灵龙路",
-    "price": 88
+    "price": 88,
+    "courseTime": "2小时"
   },
   {
     "id": "2087825994376065025",
@@ -803,11 +758,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市西秀区灵龙路",
-    "price": 88
+    "price": 88,
+    "courseTime": "2小时"
   },
   {
     "id": "2087825744483627010",
@@ -821,11 +775,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市西秀区灵龙路",
-    "price": 88
+    "price": 88,
+    "courseTime": "1小时"
   },
   {
     "id": "2087825120685764610",
@@ -839,11 +792,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市西秀区灵龙路",
-    "price": 88
+    "price": 88,
+    "courseTime": "1小时"
   },
   {
     "id": "2087824489556258817",
@@ -857,11 +809,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市西秀区灵龙路",
-    "price": 88
+    "price": 88,
+    "courseTime": "1小时"
   },
   {
     "id": "2087793512318545922",
@@ -876,11 +827,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 30
+    "price": 30,
+    "courseTime": "1小时"
   },
   {
     "id": "2087792286348652546",
@@ -895,11 +845,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 30
+    "price": 30,
+    "courseTime": "1小时"
   },
   {
     "id": "2087791956244344833",
@@ -914,11 +863,10 @@ window.COURSES = [
       "小学五六年级"
     ],
     "rawDuration": "1.5",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 80
+    "price": 80,
+    "courseTime": "2小时"
   },
   {
     "id": "2087791130171977729",
@@ -933,11 +881,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 30
+    "price": 30,
+    "courseTime": "1小时"
   },
   {
     "id": "2087789821578489857",
@@ -952,11 +899,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 30
+    "price": 30,
+    "courseTime": "1小时"
   },
   {
     "id": "2087788628177367041",
@@ -971,11 +917,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 20
+    "price": 20,
+    "courseTime": "1小时"
   },
   {
     "id": "2087727504446763010",
@@ -987,11 +932,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 80
+    "price": 80,
+    "courseTime": "1小时"
   },
   {
     "id": "2087472130590289922",
@@ -1006,11 +950,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1小时",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省安顺市平坝区黎阳职工俱乐部东南50米",
-    "price": 50
+    "price": 50,
+    "courseTime": "1小时"
   },
   {
     "id": "2044241066459967489",
@@ -1022,11 +965,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市观山湖区白云大道224号",
-    "price": 199
+    "price": 199,
+    "courseTime": "1小时"
   },
   {
     "id": "2011701979117539329",
@@ -1038,11 +980,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "基地",
     "address": "贵州省研学实践教育基地",
-    "price": 38
+    "price": 38,
+    "courseTime": "1小时"
   },
   {
     "id": "2011707279807631362",
@@ -1054,11 +995,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "机构",
     "address": "贵州省研学实践教育基地",
-    "price": 100
+    "price": 100,
+    "courseTime": "1小时"
   },
   {
     "id": "2029771270232436737",
@@ -1069,11 +1009,10 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省研学实践教育基地",
-    "price": 89
+    "price": 89,
+    "courseTime": "1小时"
   },
   {
     "id": "2042439753894141953",
@@ -1084,11 +1023,10 @@ window.COURSES = [
       "小学一二年级"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "机构",
     "address": "贵州省贵阳市清镇市巢凤社区清镇体育训练基地",
-    "price": 399
+    "price": 399,
+    "courseTime": "1小时"
   },
   {
     "id": "2029488695161090049",
@@ -1100,11 +1038,10 @@ window.COURSES = [
       "高中"
     ],
     "rawDuration": "1",
-    "durationBand": "1",
-    "durationText": "1天",
     "providerType": "基地",
     "address": "贵州省贵阳市南明区贵州双龙航空港经济区见龙洞路和彩湖路交会处",
-    "price": 168
+    "price": 168,
+    "courseTime": "1小时"
   },
   {
     "id": "2011710431005003778",
@@ -1115,34 +1052,9 @@ window.COURSES = [
       "初中"
     ],
     "rawDuration": "0.5",
-    "durationBand": "0.5",
-    "durationText": "0.5天",
     "providerType": "机构",
     "address": "贵州省研学实践教育基地",
-    "price": 58
-  }
-];
-
-window.RECOMMENDED_BASES = [
-  {
-    "name": "贵州科学城科技创新园",
-    "image": "assets/bases/base1.jpg",
-    "category": "国防科工",
-    "grade": "市级",
-    "address": "贵州省"
-  },
-  {
-    "name": "贵州关岭化石群国家地质公园",
-    "image": "assets/bases/base2.jpg",
-    "category": "自然生态",
-    "grade": "国家级",
-    "address": "贵州省"
-  },
-  {
-    "name": "黔山秀水国防航天科技研学基地",
-    "image": "assets/bases/base3.jpg",
-    "category": "国防科工",
-    "grade": "市级",
-    "address": "贵州省"
+    "price": 58,
+    "courseTime": "1小时"
   }
 ];

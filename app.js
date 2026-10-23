@@ -24,10 +24,10 @@
       options: ["不限", "小学一二年级", "小学三四年级", "小学五六年级", "初中", "高中"]
     },
     {
-      key: "durationBand",
-      label: "课程天数",
+      key: "courseTime",
+      label: "课程时间",
       allLabel: "不限",
-      options: ["不限", "0.5", "1", "2", "3"]
+      options: ["不限", "1小时", "2小时", "3小时", "4小时", "6小时", "8小时"]
     },
     {
       key: "providerType",
@@ -37,19 +37,10 @@
     }
   ];
 
-  const OPTION_LABELS = {
-    durationBand: {
-      "0.5": "0.5天",
-      1: "1天",
-      2: "2天",
-      3: "3天"
-    }
-  };
-
   const state = {
     courseType: "全部",
     fitPeriod: "不限",
-    durationBand: "不限",
+    courseTime: "不限",
     providerType: "不限",
     page: 1,
     pageSize: 12,
@@ -118,10 +109,6 @@
     toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 2200);
   }
 
-  function optionLabel(key, value) {
-    return OPTION_LABELS[key]?.[value] || value;
-  }
-
   function renderFilterControls() {
     filterRoot.innerHTML = FILTERS.map((group) => {
       const options = group.options
@@ -134,7 +121,7 @@
               data-filter-key="${escapeAttribute(group.key)}"
               data-filter-value="${escapeAttribute(value)}"
               aria-pressed="${active}"
-            >${escapeHTML(optionLabel(group.key, value))}</button>
+            >${escapeHTML(value)}</button>
           `;
         })
         .join("");
@@ -163,7 +150,7 @@
       if (!isAll("fitPeriod", state.fitPeriod) && !course.stages.includes(state.fitPeriod)) {
         return false;
       }
-      if (!isAll("durationBand", state.durationBand) && course.durationBand !== state.durationBand) {
+      if (!isAll("courseTime", state.courseTime) && course.courseTime !== state.courseTime) {
         return false;
       }
       if (!isAll("providerType", state.providerType) && course.providerType !== state.providerType) {
@@ -206,9 +193,9 @@
           <span class="course-category" style="background:${color}">${escapeHTML(course.category)}</span>
           <div class="course-image-meta">
             <span class="course-stages" title="${escapeAttribute(course.stages.join("、") || "全学段适用")}">${escapeHTML(stages)}</span>
-            <span class="course-duration" title="原始课程时长：${escapeAttribute(course.rawDuration)}">
+            <span class="course-duration" title="课程时间：${escapeAttribute(course.courseTime)}">
               <svg aria-hidden="true"><use href="#icon-calendar"></use></svg>
-              ${escapeHTML(course.durationText)}
+              ${escapeHTML(course.courseTime)}
             </span>
           </div>
         </div>
@@ -274,7 +261,7 @@
     const labels = [];
     if (!isAll("courseType", state.courseType)) labels.push(state.courseType);
     if (!isAll("fitPeriod", state.fitPeriod)) labels.push(state.fitPeriod);
-    if (!isAll("durationBand", state.durationBand)) labels.push(optionLabel("durationBand", state.durationBand));
+    if (!isAll("courseTime", state.courseTime)) labels.push(state.courseTime);
     if (!isAll("providerType", state.providerType)) labels.push(`${state.providerType}课程`);
     if (state.query.trim()) labels.push(`“${state.query.trim()}”`);
     activeFilters.textContent = labels.length ? labels.join(" · ") : "全部课程";
@@ -299,7 +286,7 @@
   function resetFilters(keepQuery = false) {
     state.courseType = "全部";
     state.fitPeriod = "不限";
-    state.durationBand = "不限";
+    state.courseTime = "不限";
     state.providerType = "不限";
     state.page = 1;
     if (!keepQuery) {
@@ -328,8 +315,8 @@
         </div>
         <div class="dialog-facts">
           <div class="dialog-fact">
-            <span>课程天数</span>
-            <strong>${escapeHTML(course.durationText)}</strong>
+            <span>课程时间</span>
+            <strong>${escapeHTML(course.courseTime)}</strong>
           </div>
           <div class="dialog-fact">
             <span>课程类型</span>
