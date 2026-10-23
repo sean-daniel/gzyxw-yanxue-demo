@@ -42,4 +42,4 @@ python3 -m http.server 4173
 - 机构详情图集、简介、区县/地址和关联课程
 - 桌面、平板、移动端响应式布局
 
-页面结构与字段清单见 [REQUIREMENTS.md](REQUIREMENTS.md)。
+主要交互路径与新增字段清单见 [REQUIREMENTS.md](REQUIREMENTS.md)。
