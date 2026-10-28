@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="贵州省研学综合服务网投保管理高保真 HTML Demo"
+    />
+    <title>投保管理｜贵州省研学综合服务网</title>
+    <link rel="icon" type="image/png" href="../assets/logo-title.png" />
+    <link rel="stylesheet" href="./styles.css?v=20261028-download" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="m3.5 10.6 8.5-7 8.5 7v9.1a1.3 1.3 0 0 1-1.3 1.3H4.8a1.3 1.3 0 0 1-1.3-1.3z" />
+        <path d="M9.2 21v-6.2h5.6V21" />
+      </symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
+        <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
+        <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
+        <rect x="13.5" y="13.5" width="7" height="7" rx="1" />
+      </symbol>
+      <symbol id="icon-route" viewBox="0 0 24 24">
+        <circle cx="6" cy="6" r="2.2" />
+        <circle cx="18" cy="18" r="2.2" />
+        <path d="M8.2 6h3.6a4 4 0 0 1 4 4v.8a4 4 0 0 0 4 4h.2M6 8.2v5.6a2 2 0 0 0 2 2h5.8" />
+      </symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5zM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z" />
+      </symbol>
+      <symbol id="icon-wallet" viewBox="0 0 24 24">
+        <path d="M4 6.5h13.5A2.5 2.5 0 0 1 20 9v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12" />
+        <path d="M15 11h7v5h-7a2.5 2.5 0 0 1 0-5Z" />
+        <circle cx="16.5" cy="13.5" r=".7" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 3 20 6v5.9c0 4.8-3.2 7.7-8 9.1-4.8-1.4-8-4.3-8-9.1V6z" />
+        <path d="m8.6 12 2.2 2.2 4.6-4.7" />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.9-5.4 2.9 1-6-4.4-4.3 6.1-.9z" />
+      </symbol>
+      <symbol id="icon-car" viewBox="0 0 24 24">
+        <path d="m5 10 1.5-4.1A2 2 0 0 1 8.4 4.5h7.2a2 2 0 0 1 1.9 1.4L19 10M4 10h16a2 2 0 0 1 2 2v4.5h-2.5M2 16.5V12a2 2 0 0 1 2-2" />
+        <path d="M2 14h20v2.5h-2.5M5.5 16.5H2M5.5 16.5a2 2 0 1 0 4 0m5 0a2 2 0 1 0 4 0" />
+      </symbol>
+      <symbol id="icon-building" viewBox="0 0 24 24">
+        <path d="M4 21V5.5A1.5 1.5 0 0 1 5.5 4H14v17M14 9h4.5A1.5 1.5 0 0 1 20 10.5V21" />
+        <path d="M2 21h20M7.5 8h3M7.5 12h3M7.5 16h3M17 13h.1M17 17h.1" />
+      </symbol>
+      <symbol id="icon-base" viewBox="0 0 24 24">
+        <path d="M3 19.5 9 8l4 6 2.5-4L21 19.5z" />
+        <path d="M8 19.5V21M13 19.5V21M18 19.5V21" />
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="7.5" r="3.5" />
+        <path d="M4.5 21c.5-4.5 3.1-7 7.5-7s7 2.5 7.5 7" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="10.7" cy="10.7" r="6.5" />
+        <path d="m16 16 4.3 4.3" />
+      </symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 1 0-2.3 6.2" />
+        <path d="M20 5v6h-6" />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m8 10 4 4 4-4" />
+      </symbol>
+      <symbol id="icon-left" viewBox="0 0 24 24">
+        <path d="m14.5 6-6 6 6 6" />
+      </symbol>
+      <symbol id="icon-right" viewBox="0 0 24 24">
+        <path d="m9.5 6 6 6-6 6" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m5 5 14 14M19 5 5 19" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12.5 4.2 4.2L19 7" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9.5" r="2.3" />
+        <path d="M3 20c.4-4 2.4-6 6-6s5.6 2 6 6M14.2 14.4c3.2-.6 5.3 1.3 5.8 4.3" />
+      </symbol>
+      <symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 3h8l4 4v14H6z" />
+        <path d="M14 3v5h5M9 12h6M9 16h6" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <rect x="6.5" y="2.5" width="11" height="19" rx="2.2" />
+        <path d="M10 5h4M10.5 18.7h3" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" />
+      </symbol>
+      <symbol id="icon-activity" viewBox="0 0 24 24">
+        <path d="M5 4h14v16H5zM8 2v4M16 2v4M5 9h14" />
+        <path d="m9 14 2 2 4-4" />
+      </symbol>
+    </svg>
+
+    <div class="app-shell" id="appShell">
+      <aside class="sidebar" id="sidebar" aria-label="后台主导航">
+        <div class="sidebar__brand">
+          <a href="#" class="brand-mark" aria-label="贵州省研学综合服务网">
+            <span class="brand-mark__icon" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span class="brand-mark__text">贵州省研学综合服务网</span>
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <a class="nav-item" href="#" aria-label="工作台">
+            <span class="nav-item__icon"><svg><use href="#icon-home"></use></svg></span>
+            <span class="nav-item__label">工作台</span>
+          </a>
+
+          <p class="nav-section-label">业务管理</p>
+          <a class="nav-item" href="#" aria-label="出行管理">
+            <span class="nav-item__icon"><svg><use href="#icon-route"></use></svg></span>
+            <span class="nav-item__label">出行管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="产品管理">
+            <span class="nav-item__icon"><svg><use href="#icon-grid"></use></svg></span>
+            <span class="nav-item__label">产品管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="课程与方案管理">
+            <span class="nav-item__icon"><svg><use href="#icon-book"></use></svg></span>
+            <span class="nav-item__label">课程与方案管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="账单管理">
+            <span class="nav-item__icon"><svg><use href="#icon-wallet"></use></svg></span>
+            <span class="nav-item__label">账单管理</span>
+          </a>
+          <a class="nav-item is-active" href="#" aria-current="page" aria-label="投保管理">
+            <span class="nav-item__icon"><svg><use href="#icon-shield"></use></svg></span>
+            <span class="nav-item__label">投保管理</span>
+            <span class="nav-item__badge">NEW</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="评价管理">
+            <span class="nav-item__icon"><svg><use href="#icon-star"></use></svg></span>
+            <span class="nav-item__label">评价管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="车队信息">
+            <span class="nav-item__icon"><svg><use href="#icon-car"></use></svg></span>
+            <span class="nav-item__label">车队信息</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="车企管理">
+            <span class="nav-item__icon"><svg><use href="#icon-building"></use></svg></span>
+            <span class="nav-item__label">车企管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="基地管理">
+            <span class="nav-item__icon"><svg><use href="#icon-base"></use></svg></span>
+            <span class="nav-item__label">基地管理</span>
+          </a>
+        </nav>
+
+        <div class="sidebar__footer">
+          <span>v1.0.0</span>
+          <span>客服电话：0851-86726533</span>
+        </div>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar__left">
+            <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="切换侧边栏">
+              <svg><use href="#icon-menu"></use></svg>
+            </button>
+            <nav class="breadcrumb" aria-label="面包屑">
+              <a href="#">工作台</a>
+              <span>/</span>
+              <strong id="breadcrumbCurrent">投保管理</strong>
+            </nav>
+          </div>
+
+          <div class="topbar__right">
+            <button class="portal-button" type="button">
+              <svg><use href="#icon-grid"></use></svg>
+              <span>访问门户</span>
+            </button>
+            <span class="topbar__divider"></span>
+            <div class="org-chip">
+              <span class="org-chip__label">当前单位</span>
+              <span class="org-chip__name">贵州省桥梁科普教育博物馆</span>
+              <svg><use href="#icon-chevron"></use></svg>
+            </div>
+            <div class="account">
+              <img src="../assets/logo-title.png" alt="" />
+              <span>贵州省桥梁科普教育博物馆管理员</span>
+              <svg><use href="#icon-chevron"></use></svg>
+            </div>
+          </div>
+        </header>
+
+        <div class="tabbar" aria-label="已打开页面">
+          <button class="page-tab" type="button">
+            <svg><use href="#icon-home"></use></svg>
+            <span>工作台</span>
+          </button>
+          <button class="page-tab is-active" type="button">
+            <svg><use href="#icon-shield"></use></svg>
+            <span>投保管理</span>
+            <svg class="page-tab__close"><use href="#icon-close"></use></svg>
+          </button>
+          <button class="tabbar__refresh" type="button" aria-label="刷新页面">
+            <svg><use href="#icon-refresh"></use></svg>
+          </button>
+        </div>
+
+        <main class="content">
+          <div id="listView">
+          <section class="filter-card" aria-labelledby="filterTitle">
+            <h2 class="sr-only" id="filterTitle">筛选活动</h2>
+            <div class="filter-grid">
+              <label class="field field--wide">
+                <span>活动名称</span>
+                <span class="field__control">
+                  <svg><use href="#icon-search"></use></svg>
+                  <input id="activitySearch" type="search" placeholder="请输入活动名称" autocomplete="off" />
+                </span>
+              </label>
+              <label class="field">
+                <span>投保状态</span>
+                <span class="field__control">
+                  <select id="statusFilter">
+                    <option value="all">全部状态</option>
+                    <option value="partial">部分投保</option>
+                    <option value="complete">已全部投保</option>
+                    <option value="pending">待投保</option>
+                  </select>
+                  <svg class="field__chevron"><use href="#icon-chevron"></use></svg>
+                </span>
+              </label>
+              <div class="filter-actions">
+                <button class="primary-button" id="searchButton" type="button">
+                  <svg><use href="#icon-search"></use></svg>
+                  搜索
+                </button>
+                <button class="ghost-button" id="resetButton" type="button">重置</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="metrics" aria-label="投保数据概览">
+            <article class="metric-card metric-card--blue">
+              <span class="metric-card__icon"><svg><use href="#icon-activity"></use></svg></span>
+              <div>
+                <span class="metric-card__label">活动总数</span>
+                <strong><span data-total-activities>0</span><small>个</small></strong>
+              </div>
+              <span class="metric-card__trend">较上月 +2</span>
+            </article>
+            <article class="metric-card metric-card--green">
+              <span class="metric-card__icon"><svg><use href="#icon-shield"></use></svg></span>
+              <div>
+                <span class="metric-card__label">已投保人数</span>
+                <strong><span data-total-insured>0</span><small>人</small></strong>
+              </div>
+              <span class="metric-card__trend">可继续投保</span>
+            </article>
+            <article class="metric-card metric-card--orange">
+              <span class="metric-card__icon"><svg><use href="#icon-users"></use></svg></span>
+              <div>
+                <span class="metric-card__label">待投保人数</span>
+                <strong><span data-total-pending>0</span><small>人</small></strong>
+              </div>
+              <span class="metric-card__trend">需尽快处理</span>
+            </article>
+          </section>
+
+          <section class="table-card" aria-labelledby="activityListTitle">
+            <div class="table-card__head">
+              <div>
+                <h2 id="activityListTitle">活动投保清单</h2>
+                <p>共 <strong id="activityCount">0</strong> 个活动</p>
+              </div>
+              <div class="insurance-tip">
+                <svg><use href="#icon-shield"></use></svg>
+                投保信息将同步至活动订单
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th class="col-index">序号</th>
+                    <th>活动名称</th>
+                    <th class="col-number">已投保人数</th>
+                    <th class="col-number">待投保人数</th>
+                    <th class="col-action">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="activityTableBody"></tbody>
+              </table>
+              <div class="empty-state" id="activityEmpty" hidden>
+                <span class="empty-state__icon"><svg><use href="#icon-search"></use></svg></span>
+                <h3>没有找到匹配的活动</h3>
+                <p>请调整活动名称或投保状态后重新搜索。</p>
+                <button class="ghost-button" id="emptyResetButton" type="button">清空筛选</button>
+              </div>
+            </div>
+
+            <div class="pagination-bar">
+              <span>共 <strong id="paginationTotal">0</strong> 条</span>
+              <div class="pagination">
+                <button class="pagination__button" type="button" aria-label="上一页" disabled>
+                  <svg><use href="#icon-left"></use></svg>
+                </button>
+                <button class="pagination__page is-active" type="button">1</button>
+                <button class="pagination__button" type="button" aria-label="下一页" disabled>
+                  <svg><use href="#icon-right"></use></svg>
+                </button>
+              </div>
+            </div>
+          </section>
+          </div>
+
+          <section class="detail-page" id="detailView" hidden aria-labelledby="detailTitle">
+            <button class="back-link" id="backToList" type="button">
+              <svg><use href="#icon-left"></use></svg>
+              返回活动列表
+            </button>
+
+            <header class="detail-hero">
+              <div>
+                <span class="modal-kicker">活动参保详情</span>
+                <h1 id="detailTitle">活动名称</h1>
+                <p id="detailMeta"></p>
+              </div>
+              <button class="primary-button" id="detailBatchInsure" type="button">
+                <svg><use href="#icon-shield"></use></svg>
+                一键投保
+              </button>
+            </header>
+
+            <div class="detail-summary">
+              <article>
+                <span>学生总数</span>
+                <strong id="detailStudentTotal">0</strong>
+              </article>
+              <article class="is-success">
+                <span>已投保</span>
+                <strong id="detailInsuredTotal">0</strong>
+              </article>
+              <article class="is-warning">
+                <span>待投保</span>
+                <strong id="detailPendingTotal">0</strong>
+              </article>
+            </div>
+
+            <section class="filter-card detail-filter-card" aria-labelledby="studentFilterTitle">
+              <h2 class="sr-only" id="studentFilterTitle">筛选学生</h2>
+              <div class="detail-filter-grid">
+                <label class="field">
+                  <span>学生姓名</span>
+                  <span class="field__control">
+                    <svg><use href="#icon-search"></use></svg>
+                    <input id="studentSearch" type="search" placeholder="请输入学生姓名" autocomplete="off" />
+                  </span>
+                </label>
+                <label class="field">
+                  <span>是否投保</span>
+                  <span class="field__control">
+                    <select id="studentInsuranceFilter">
+                      <option value="all">全部</option>
+                      <option value="insured">已投保</option>
+                      <option value="uninsured">未投保</option>
+                    </select>
+                    <svg class="field__chevron"><use href="#icon-chevron"></use></svg>
+                  </span>
+                </label>
+                <label class="field">
+                  <span>身份证号</span>
+                  <span class="field__control">
+                    <svg><use href="#icon-document"></use></svg>
+                    <input id="studentIdSearch" type="search" placeholder="请输入身份证号" autocomplete="off" />
+                  </span>
+                </label>
+                <label class="field">
+                  <span>手机号</span>
+                  <span class="field__control">
+                    <svg><use href="#icon-phone"></use></svg>
+                    <input id="studentPhoneSearch" type="search" placeholder="请输入手机号" autocomplete="off" />
+                  </span>
+                </label>
+                <div class="filter-actions detail-filter-actions">
+                  <button class="primary-button" id="studentSearchButton" type="button">
+                    <svg><use href="#icon-search"></use></svg>
+                    搜索
+                  </button>
+                  <button class="ghost-button" id="studentResetButton" type="button">重置</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="table-card">
+              <div class="table-wrap detail-table-wrap">
+                <table class="data-table student-table">
+                  <thead>
+                    <tr>
+                      <th class="col-index">序号</th>
+                      <th>学生姓名</th>
+                      <th>身份证号</th>
+                      <th>手机号</th>
+                      <th>是否投保</th>
+                      <th class="col-action">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody id="studentTableBody"></tbody>
+                </table>
+                <div class="empty-state" id="studentEmpty" hidden>
+                  <span class="empty-state__icon"><svg><use href="#icon-search"></use></svg></span>
+                  <h3>没有找到匹配的学生</h3>
+                  <p>请调整姓名、身份证号、手机号或投保状态后重新搜索。</p>
+                  <button class="ghost-button" id="studentEmptyReset" type="button">清空筛选</button>
+                </div>
+              </div>
+
+              <div class="pagination-bar">
+                <span>共 <strong id="studentCount">0</strong> 条</span>
+                <div class="pagination">
+                  <button class="pagination__button" type="button" aria-label="上一页" disabled>
+                    <svg><use href="#icon-left"></use></svg>
+                  </button>
+                  <button class="pagination__page is-active" type="button">1</button>
+                  <button class="pagination__button" type="button" aria-label="下一页" disabled>
+                    <svg><use href="#icon-right"></use></svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="paymentModal" hidden>
+      <section class="payment-modal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+        <header class="payment-modal__head">
+          <div>
+            <span class="modal-kicker">投保支付</span>
+            <h2 id="paymentTitle">扫码支付</h2>
+          </div>
+          <button class="icon-button" id="paymentClose" type="button" aria-label="关闭支付窗口">
+            <svg><use href="#icon-close"></use></svg>
+          </button>
+        </header>
+        <div class="payment-modal__body">
+          <div class="qr-panel">
+            <span class="qr-corner qr-corner--tl"></span>
+            <span class="qr-corner qr-corner--tr"></span>
+            <span class="qr-corner qr-corner--bl"></span>
+            <span class="qr-corner qr-corner--br"></span>
+            <img src="./payment-qr.png" alt="投保支付二维码" />
+            <div class="qr-scan-line" aria-hidden="true"></div>
+          </div>
+          <div class="payment-info">
+            <span class="payment-info__label">支付金额</span>
+            <div class="payment-total">¥<strong id="paymentTotal">0.00</strong></div>
+            <dl class="payment-details">
+              <div>
+                <dt>投保数量</dt>
+                <dd><strong id="paymentQuantity">0</strong> 人</dd>
+              </div>
+              <div>
+                <dt>保险单价</dt>
+                <dd>¥<strong id="paymentUnitPrice">12.00</strong> / 人</dd>
+              </div>
+              <div>
+                <dt>投保对象</dt>
+                <dd id="paymentTarget">活动学生</dd>
+              </div>
+            </dl>
+            <p class="payment-hint">请使用微信或支付宝扫码支付，完成后点击“已支付”。</p>
+          </div>
+        </div>
+        <footer class="payment-modal__foot">
+          <button class="ghost-button" id="paymentCancel" type="button">取消支付</button>
+          <button class="primary-button" id="paymentPaid" type="button">
+            <svg><use href="#icon-check"></use></svg>
+            已支付
+          </button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="confirmModal" hidden>
+      <section class="confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <span class="confirm-modal__icon confirm-modal__icon--danger"><svg><use href="#icon-shield"></use></svg></span>
+        <h2 id="confirmTitle">确认退保？</h2>
+        <p id="confirmText">退保后该学生的投保状态将被取消。</p>
+        <div class="confirm-modal__actions">
+          <button class="ghost-button" id="confirmCancel" type="button">取消</button>
+          <button class="danger-button" id="confirmSubmit" type="button">确认退保</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./app.js?v=20261028-download"></script>
+  </body>
+</html>

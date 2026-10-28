@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="贵州省研学综合服务网投保设置 Admin HTML Demo"
+    />
+    <title>投保设置｜贵州省研学综合服务网 Admin</title>
+    <link rel="icon" type="image/png" href="../assets/logo-title.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="m3.5 10.6 8.5-7 8.5 7v9.1a1.3 1.3 0 0 1-1.3 1.3H4.8a1.3 1.3 0 0 1-1.3-1.3z" />
+        <path d="M9.2 21v-6.2h5.6V21" />
+      </symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
+        <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
+        <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
+        <rect x="13.5" y="13.5" width="7" height="7" rx="1" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 3 20 6v5.9c0 4.8-3.2 7.7-8 9.1-4.8-1.4-8-4.3-8-9.1V6z" />
+        <path d="m8.6 12 2.2 2.2 4.6-4.7" />
+      </symbol>
+      <symbol id="icon-building" viewBox="0 0 24 24">
+        <path d="M4 21V5.5A1.5 1.5 0 0 1 5.5 4H14v17M14 9h4.5A1.5 1.5 0 0 1 20 10.5V21" />
+        <path d="M2 21h20M7.5 8h3M7.5 12h3M7.5 16h3M17 13h.1M17 17h.1" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9.5" r="2.3" />
+        <path d="M3 20c.4-4 2.4-6 6-6s5.6 2 6 6M14.2 14.4c3.2-.6 5.3 1.3 5.8 4.3" />
+      </symbol>
+      <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.1" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .35 1.9l.06.06-2.85 2.85-.06-.06a1.7 1.7 0 0 0-1.9-.35 1.7 1.7 0 0 0-1 1.56V21h-4v-.09A1.7 1.7 0 0 0 8.95 19.4a1.7 1.7 0 0 0-1.9.35l-.06.06-2.85-2.85.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1H3v-4h.09A1.7 1.7 0 0 0 4.6 8.95a1.7 1.7 0 0 0-.35-1.9l-.06-.06L7.04 4.14l.06.06a1.7 1.7 0 0 0 1.9.35A1.7 1.7 0 0 0 10 3V3h4v.09a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.9-.35l.06-.06 2.85 2.85-.06.06a1.7 1.7 0 0 0-.35 1.9 1.7 1.7 0 0 0 1.56 1H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z" />
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M6 3h8l4 4v14H6z" />
+        <path d="M14 3v5h5M9 12h6M9 16h6" />
+      </symbol>
+      <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5.5" rx="8" ry="3" />
+        <path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12.5 4.2 4.2L19 7" />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m8 10 4 4 4-4" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m5 5 14 14M19 5 5 19" />
+      </symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 1 0-2.3 6.2" />
+        <path d="M20 5v6h-6" />
+      </symbol>
+      <symbol id="icon-package" viewBox="0 0 24 24">
+        <path d="m4 7 8-4 8 4-8 4zM4 7v10l8 4 8-4V7M12 11v10" />
+        <path d="m8 5 8 4" />
+      </symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24">
+        <rect x="4.5" y="10" width="15" height="11" rx="2" />
+        <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" />
+      </symbol>
+    </svg>
+
+    <div class="app-shell admin-shell" id="appShell">
+      <aside class="sidebar" id="sidebar" aria-label="Admin 后台主导航">
+        <div class="sidebar__brand">
+          <a href="#" class="brand-mark" aria-label="贵州省研学综合服务网">
+            <span class="brand-mark__icon" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span class="brand-mark__text">贵州省研学综合服务网</span>
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <a class="nav-item" href="#" aria-label="工作台">
+            <span class="nav-item__icon"><svg><use href="#icon-home"></use></svg></span>
+            <span class="nav-item__label">工作台</span>
+          </a>
+
+          <p class="nav-section-label">组织与权限</p>
+          <a class="nav-item" href="#" aria-label="机构管理">
+            <span class="nav-item__icon"><svg><use href="#icon-building"></use></svg></span>
+            <span class="nav-item__label">机构管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="用户与权限">
+            <span class="nav-item__icon"><svg><use href="#icon-users"></use></svg></span>
+            <span class="nav-item__label">用户与权限</span>
+          </a>
+
+          <p class="nav-section-label">业务配置</p>
+          <a class="nav-item is-active" href="#" aria-current="page" aria-label="投保设置">
+            <span class="nav-item__icon"><svg><use href="#icon-shield"></use></svg></span>
+            <span class="nav-item__label">投保设置</span>
+            <span class="nav-item__badge">ADMIN</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="系统参数">
+            <span class="nav-item__icon"><svg><use href="#icon-settings"></use></svg></span>
+            <span class="nav-item__label">系统参数</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="操作日志">
+            <span class="nav-item__icon"><svg><use href="#icon-file"></use></svg></span>
+            <span class="nav-item__label">操作日志</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="数据维护">
+            <span class="nav-item__icon"><svg><use href="#icon-database"></use></svg></span>
+            <span class="nav-item__label">数据维护</span>
+          </a>
+        </nav>
+
+        <div class="sidebar__footer">
+          <span>Admin Console · v1.0.0</span>
+          <span>客服电话：0851-86726533</span>
+        </div>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar__left">
+            <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="切换侧边栏">
+              <svg><use href="#icon-menu"></use></svg>
+            </button>
+            <nav class="breadcrumb" aria-label="面包屑">
+              <a href="#">工作台</a>
+              <span>/</span>
+              <strong>投保设置</strong>
+            </nav>
+          </div>
+
+          <div class="topbar__right">
+            <button class="portal-button" type="button">
+              <svg><use href="#icon-grid"></use></svg>
+              <span>访问门户</span>
+            </button>
+            <span class="topbar__divider"></span>
+            <div class="org-chip">
+              <span class="org-chip__label">当前平台</span>
+              <span class="org-chip__name">贵州省研学综合服务网</span>
+              <svg><use href="#icon-chevron"></use></svg>
+            </div>
+            <div class="account">
+              <img src="../assets/logo-title.png" alt="" />
+              <span>平台超级管理员</span>
+              <svg><use href="#icon-chevron"></use></svg>
+            </div>
+          </div>
+        </header>
+
+        <div class="tabbar" aria-label="已打开页面">
+          <button class="page-tab" type="button">
+            <svg><use href="#icon-home"></use></svg>
+            <span>工作台</span>
+          </button>
+          <button class="page-tab is-active" type="button">
+            <svg><use href="#icon-shield"></use></svg>
+            <span>投保设置</span>
+            <svg class="page-tab__close"><use href="#icon-close"></use></svg>
+          </button>
+          <button class="tabbar__refresh" type="button" aria-label="刷新页面">
+            <svg><use href="#icon-refresh"></use></svg>
+          </button>
+        </div>
+
+        <main class="content admin-content">
+          <section class="admin-metrics" aria-label="投保配置概览">
+            <article class="admin-metric">
+              <span class="admin-metric__icon is-blue"><svg><use href="#icon-building"></use></svg></span>
+              <div>
+                <p>已接入保险公司</p>
+                <strong><span id="companyTotal">0</span><small>家</small></strong>
+              </div>
+              <span class="admin-metric__note">服务商资源池</span>
+            </article>
+            <article class="admin-metric">
+              <span class="admin-metric__icon is-green"><svg><use href="#icon-check"></use></svg></span>
+              <div>
+                <p>当前启用</p>
+                <strong><span id="activeCompanyTotal">0</span><small>家</small></strong>
+              </div>
+              <span class="admin-metric__note">按区域生效</span>
+            </article>
+            <article class="admin-metric">
+              <span class="admin-metric__icon is-orange"><svg><use href="#icon-package"></use></svg></span>
+              <div>
+                <p>可选投保套餐</p>
+                <strong><span id="planTotal">0</span><small>个</small></strong>
+              </div>
+              <span class="admin-metric__note">覆盖多种保障</span>
+            </article>
+          </section>
+
+          <section class="admin-table-card">
+            <div class="provider-table-wrap">
+              <table class="provider-table">
+                <thead>
+                  <tr>
+                    <th class="provider-col-index">序号</th>
+                    <th>保险公司</th>
+                    <th class="provider-col-package">当前投保套餐</th>
+                    <th class="provider-col-status">启用状态</th>
+                    <th class="provider-col-action">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="companyTableBody"></tbody>
+              </table>
+            </div>
+
+            <footer class="admin-table-card__foot">
+              <span>配置变更将同步至投保管理，仅影响之后产生的新保单。</span>
+              <span>最近更新：<strong id="updatedAt">--</strong></span>
+            </footer>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="settingsModal" hidden>
+      <section
+        class="settings-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="settingsTitle"
+      >
+        <header class="settings-modal__head">
+          <div>
+            <span class="modal-kicker">COMPANY SETTINGS</span>
+            <h2 id="settingsTitle">设置投保套餐与区域</h2>
+          </div>
+          <button class="icon-button" id="settingsClose" type="button" aria-label="关闭设置">
+            <svg><use href="#icon-close"></use></svg>
+          </button>
+        </header>
+
+        <div class="settings-modal__body">
+          <section class="settings-provider" aria-label="当前保险公司">
+            <span class="settings-provider__logo" id="settingsLogo">保</span>
+            <div>
+              <h3 id="settingsCompanyName">保险公司</h3>
+              <p id="settingsCompanyMeta"></p>
+            </div>
+            <span class="settings-provider__status" id="settingsStatus">未启用</span>
+          </section>
+
+          <section class="plan-section" aria-labelledby="planSectionTitle">
+            <div class="plan-section__head">
+              <div>
+                <h3 id="planSectionTitle">选择投保套餐</h3>
+                <p>套餐将应用于后续一键投保及单人投保订单</p>
+              </div>
+              <span>单选</span>
+            </div>
+            <div class="plan-grid" id="planGrid"></div>
+          </section>
+
+          <section class="region-section" aria-labelledby="regionSectionTitle">
+            <div class="plan-section__head">
+              <div>
+                <h3 id="regionSectionTitle">选择投保区域</h3>
+                <p>可勾选省、市、区/县，灰色区域已由其他保险公司投保</p>
+              </div>
+              <span class="region-selected-count">已选 <strong id="regionSelectedCount">0</strong> 个</span>
+            </div>
+            <div class="region-selected" id="regionSelectedChips"></div>
+            <div class="region-groups" id="regionGroups"></div>
+            <p class="region-error" id="regionError" hidden></p>
+          </section>
+
+          <p class="settings-note">
+            <svg><use href="#icon-shield"></use></svg>
+            套餐与区域变更仅影响之后产生的新保单，历史保单不受影响。
+          </p>
+        </div>
+
+        <footer class="settings-modal__foot">
+          <button class="ghost-button" id="settingsCancel" type="button">取消</button>
+          <button class="primary-button" id="settingsSave" type="button">
+            <svg><use href="#icon-check"></use></svg>
+            保存设置
+          </button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>
