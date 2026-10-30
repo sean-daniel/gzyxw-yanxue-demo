@@ -1,4 +1,9 @@
 const UNIT_PRICE = 12;
+const INSURANCE_PLAN = {
+  name: "标准安心险",
+  description:
+    "意外身故/伤残 20 万元，意外医疗 3 万元，意外住院津贴 50 元/天",
+};
 
 const activities = [
   {
@@ -6,6 +11,8 @@ const activities = [
     name: "“科创黔桥”主题研学活动",
     school: "白云区第一小学",
     date: "2026-08-01",
+    tripStartDate: "2026-08-01",
+    tripEndDate: "2026-08-03",
     students: [
       ["陈予安", "520102********2018", "138****3201"],
       ["李星禾", "520103********2021", "139****6712"],
@@ -22,6 +29,8 @@ const activities = [
     name: "白云区第一小学研学活动",
     school: "白云区第一小学",
     date: "2026-11-01",
+    tripStartDate: "2026-11-01",
+    tripEndDate: "2026-11-02",
     students: [
       ["刘书瑶", "520103********2017", "139****2857"],
       ["孙逸辰", "520111********2018", "136****4190"],
@@ -36,6 +45,8 @@ const activities = [
     name: "走进坝陵河",
     school: "安顺市第八小学",
     date: "2026-10-29",
+    tripStartDate: "2026-10-29",
+    tripEndDate: "2026-10-31",
     students: [
       ["罗嘉禾", "520402********2020", "187****3109"],
       ["高予晴", "520403********2021", "139****7842"],
@@ -54,6 +65,8 @@ const activities = [
     name: "测试机构研学研学活动",
     school: "安顺市第九中学",
     date: "2026-10-27",
+    tripStartDate: "2026-10-27",
+    tripEndDate: "2026-10-27",
     students: [
       ["叶嘉言", "520402********2018", "139****4710"],
       ["苏清和", "520403********2019", "136****2984"],
@@ -67,6 +80,8 @@ const activities = [
     name: "10.21",
     school: "白云区第一小学",
     date: "2026-10-21",
+    tripStartDate: "2026-10-21",
+    tripEndDate: "2026-10-22",
     students: [
       ["沈观澜", "520103********2020", "137****5290"],
       ["韩星野", "520111********2018", "135****6761"],
@@ -82,6 +97,8 @@ const activities = [
     name: "10月21日",
     school: "白云区第一小学",
     date: "2026-10-25",
+    tripStartDate: "2026-10-25",
+    tripEndDate: "2026-10-26",
     students: [
       ["方予棠", "520103********2018", "136****8041"],
       ["程书言", "520111********2020", "187****3267"],
@@ -94,6 +111,8 @@ const activities = [
     name: "安顺市第八小学秋季研学",
     school: "安顺市第八小学",
     date: "2026-11-02",
+    tripStartDate: "2026-11-02",
+    tripEndDate: "2026-11-04",
     students: [
       ["顾南枝", "520402********2020", "135****1736"],
       ["陆闻溪", "520403********2019", "139****6952"],
@@ -110,6 +129,8 @@ const activities = [
     name: "观山湖实验学校自然课堂",
     school: "观山湖实验学校",
     date: "2026-11-05",
+    tripStartDate: "2026-11-05",
+    tripEndDate: "2026-11-06",
     students: [
       ["温言", "520115********2018", "187****7352"],
       ["裴星然", "520115********2019", "139****0148"],
@@ -121,14 +142,21 @@ const activities = [
 ];
 
 activities.forEach((activity) => {
+  const seedGroupId = `GRP-SEED-${activity.id}`;
   activity.students = activity.students.map(
-    ([name, idNumber, phone], index) => ({
-      name,
-      idNumber,
-      phone,
-      insured: activity.seedInsured.includes(index),
-      index,
-    }),
+    ([name, idNumber, phone], index) => {
+      const insured = activity.seedInsured.includes(index);
+      return {
+        name,
+        idNumber,
+        phone,
+        insured,
+        participates: true,
+        coverageMode: insured ? "group" : null,
+        insuranceGroupId: insured ? seedGroupId : null,
+        index,
+      };
+    },
   );
 });
 
@@ -187,7 +215,14 @@ const els = {
   paymentUnitPrice: document.querySelector("#paymentUnitPrice"),
   paymentTotal: document.querySelector("#paymentTotal"),
   paymentTarget: document.querySelector("#paymentTarget"),
+  paymentCoverageMode: document.querySelector("#paymentCoverageMode"),
+  paymentPlan: document.querySelector("#paymentPlan"),
+  paymentPlanDescription: document.querySelector("#paymentPlanDescription"),
+  paymentCoverageDays: document.querySelector("#paymentCoverageDays"),
+  paymentInsurancePeriod: document.querySelector("#paymentInsurancePeriod"),
+  paymentTripPeriod: document.querySelector("#paymentTripPeriod"),
   confirmModal: document.querySelector("#confirmModal"),
+  confirmTitle: document.querySelector("#confirmTitle"),
   confirmText: document.querySelector("#confirmText"),
   confirmCancel: document.querySelector("#confirmCancel"),
   confirmSubmit: document.querySelector("#confirmSubmit"),
@@ -198,21 +233,45 @@ function getActivity(id) {
   return activities.find((activity) => activity.id === id);
 }
 
+function formatDateRange(startDate, endDate) {
+  return startDate === endDate ? startDate : `${startDate} 至 ${endDate}`;
+}
+
+function getTripDateRange(activity) {
+  return formatDateRange(activity.tripStartDate, activity.tripEndDate);
+}
+
+function getTripDurationDays(activity) {
+  const start = new Date(`${activity.tripStartDate}T00:00:00`);
+  const end = new Date(`${activity.tripEndDate}T00:00:00`);
+  return Math.round((end - start) / 86400000) + 1;
+}
+
+function isParticipating(student) {
+  return student.participates !== false;
+}
+
+function getBatchEligibleStudents(activity) {
+  return activity.students.filter(
+    (student) => isParticipating(student) && !student.insured,
+  );
+}
+
 function getInsuredCount(activity) {
   return activity.students.filter((student) => student.insured).length;
 }
 
 function getPendingCount(activity) {
-  return activity.students.length - getInsuredCount(activity);
+  return getBatchEligibleStudents(activity).length;
 }
 
 function isFullyInsured(activity) {
-  return getInsuredCount(activity) === activity.students.length;
+  return getPendingCount(activity) === 0;
 }
 
 function isPartiallyInsured(activity) {
   const count = getInsuredCount(activity);
-  return count > 0 && count < activity.students.length;
+  return count > 0 && getPendingCount(activity) > 0;
 }
 
 function matchesActivityFilter(activity) {
@@ -249,18 +308,17 @@ function insuranceStatusClass(insured) {
 }
 
 function renderMetrics() {
-  const totalStudents = activities.reduce(
-    (total, activity) => total + activity.students.length,
-    0,
-  );
   const totalInsured = activities.reduce(
     (total, activity) => total + getInsuredCount(activity),
     0,
   );
+  const totalPending = activities.reduce(
+    (total, activity) => total + getPendingCount(activity),
+    0,
+  );
   document.querySelector("[data-total-activities]").textContent = activities.length;
   document.querySelector("[data-total-insured]").textContent = totalInsured;
-  document.querySelector("[data-total-pending]").textContent =
-    totalStudents - totalInsured;
+  document.querySelector("[data-total-pending]").textContent = totalPending;
 }
 
 function renderActivities() {
@@ -279,14 +337,20 @@ function renderActivities() {
           <span class="activity-name__icon">${activityIcon()}</span>
           <span class="activity-name__body">
             <strong title="${activity.name}">${activity.name}</strong>
-            <small>${activity.school} · ${activity.date} · ${activity.id}</small>
+            <small>${activity.school} · 研学 ${getTripDateRange(activity)} · ${activity.id}</small>
           </span>
         </div>
       </td>
-      <td class="col-number">
+      <td class="col-number" data-label="已投保人数">
         <span class="count-cell"><strong>${getInsuredCount(activity)}</strong><span>人</span></span>
       </td>
-      <td class="col-number">
+      <td class="col-date" data-label="投保时间">
+        <span class="insurance-period">
+          <strong>${getTripDateRange(activity)}</strong>
+          <small>与研学出行时间一致</small>
+        </span>
+      </td>
+      <td class="col-number" data-label="待投保人数">
         <span class="count-cell is-pending"><strong>${getPendingCount(activity)}</strong><span>人</span></span>
       </td>
       <td class="col-action">
@@ -316,11 +380,11 @@ function renderActivities() {
 
 function renderDetailSummary(activity) {
   els.detailTitle.textContent = activity.name;
-  els.detailMeta.textContent = `${activity.school} · ${activity.date} · ${activity.id}`;
+  els.detailMeta.textContent = `${activity.school} · 研学 ${getTripDateRange(activity)} · ${activity.id}`;
   els.studentTotal.textContent = activity.students.length;
   els.insuredTotal.textContent = getInsuredCount(activity);
   els.pendingTotal.textContent = getPendingCount(activity);
-  els.detailBatchInsure.disabled = false;
+  els.detailBatchInsure.disabled = getPendingCount(activity) === 0;
   els.detailBatchInsure.innerHTML = `${shieldIcon()}一键投保`;
 }
 
@@ -334,15 +398,46 @@ function renderStudents() {
 
   filtered.forEach((student, rowIndex) => {
     const row = document.createElement("tr");
+    const insuranceType = student.insured
+      ? student.coverageMode === "group"
+        ? "团保"
+        : "单保"
+      : "";
     row.innerHTML = `
       <td class="col-index">${String(rowIndex + 1).padStart(2, "0")}</td>
-      <td><strong>${student.name}</strong></td>
-      <td><span class="id-number">${student.idNumber}</span></td>
-      <td><span class="phone-number">${student.phone}</span></td>
-      <td><span class="soft-status ${insuranceStatusClass(student.insured)}">${student.insured ? "已投保" : "未投保"}</span></td>
+      <td class="student-name" data-label="学生姓名"><strong>${student.name}</strong></td>
+      <td class="student-id" data-label="身份证号"><span class="id-number">${student.idNumber}</span></td>
+      <td class="student-phone" data-label="手机号"><span class="phone-number">${student.phone}</span></td>
+      <td class="student-participation" data-label="是否参与投保">
+        <label class="participation-switch" title="${student.insured ? "已投保学生需先退保后再调整参与状态" : "切换是否纳入一键投保"}">
+          <input
+            type="checkbox"
+            data-participation-toggle="${student.index}"
+            ${student.participates ? "checked" : ""}
+            aria-label="${student.name}是否参与投保"
+          />
+          <span class="participation-switch__track" aria-hidden="true"></span>
+          <span class="participation-switch__labels" aria-hidden="true">
+            <span class="participation-switch__on">参与</span>
+            <span class="participation-switch__off">不参与</span>
+          </span>
+        </label>
+      </td>
+      <td class="student-insurance" data-label="是否投保">
+        <span class="insurance-status">
+          <span class="soft-status ${insuranceStatusClass(student.insured)}">${student.insured ? "已投保" : "未投保"}</span>
+          ${insuranceType ? `<small>${insuranceType}</small>` : ""}
+        </span>
+      </td>
       <td class="col-action">
         <div class="row-actions">
-          <button class="link-button" type="button" data-insure-student="${student.index}" ${student.insured ? "disabled" : ""}>投保</button>
+          <button
+            class="link-button"
+            type="button"
+            data-insure-student="${student.index}"
+            ${student.insured || !student.participates ? "disabled" : ""}
+            ${!student.participates ? 'title="该学生已标记为不参与投保"' : ""}
+          >投保</button>
           <button class="link-button link-button--danger" type="button" data-uninsure-student="${student.index}" ${student.insured ? "" : "disabled"}>退保</button>
           <button
             class="link-button link-button--download"
@@ -420,8 +515,10 @@ function buildPolicyDocument(activity, students) {
             <div><dt>手机号</dt><dd>${escapeHtml(student.phone)}</dd></div>
             <div><dt>活动名称</dt><dd>${escapeHtml(activity.name)}</dd></div>
             <div><dt>所属学校</dt><dd>${escapeHtml(activity.school)}</dd></div>
-            <div><dt>活动日期</dt><dd>${escapeHtml(activity.date)}</dd></div>
-            <div><dt>保障套餐</dt><dd>标准安心险</dd></div>
+            <div><dt>研学时间</dt><dd>${escapeHtml(getTripDateRange(activity))}</dd></div>
+            <div><dt>投保时间</dt><dd>${escapeHtml(getTripDateRange(activity))}</dd></div>
+            <div><dt>保障套餐</dt><dd>${escapeHtml(INSURANCE_PLAN.name)}（${getTripDurationDays(activity)} 天）</dd></div>
+            <div><dt>套餐说明</dt><dd>${escapeHtml(INSURANCE_PLAN.description)}</dd></div>
             <div><dt>保险费用</dt><dd>¥${UNIT_PRICE.toFixed(2)} / 人</dd></div>
           </dl>
           <div class="policy__notice">
@@ -619,16 +716,36 @@ function applyStudentFilters() {
   renderStudents();
 }
 
-function openPayment(activityId, studentIndexes, targetLabel) {
-  if (!studentIndexes.length) {
-    showToast("当前对象已全部投保，无需重复支付");
+function openPayment(activityId, studentIndexes, targetLabel, coverageMode = "single") {
+  const activity = getActivity(activityId);
+  if (!activity) return;
+  const eligibleIndexes = [...new Set(studentIndexes)].filter((studentIndex) => {
+    const student = activity.students[studentIndex];
+    return student && isParticipating(student) && !student.insured;
+  });
+  if (!eligibleIndexes.length) {
+    showToast("当前参与投保的学生均已投保，无需重复支付");
     return;
   }
-  state.payment = { activityId, studentIndexes };
-  els.paymentQuantity.textContent = studentIndexes.length;
+
+  state.payment = {
+    activityId,
+    studentIndexes: eligibleIndexes,
+    coverageMode,
+  };
+  const tripPeriod = getTripDateRange(activity);
+  const coverageDays = getTripDurationDays(activity);
+  els.paymentQuantity.textContent = eligibleIndexes.length;
   els.paymentUnitPrice.textContent = UNIT_PRICE.toFixed(2);
-  els.paymentTotal.textContent = (studentIndexes.length * UNIT_PRICE).toFixed(2);
+  els.paymentTotal.textContent = (eligibleIndexes.length * UNIT_PRICE).toFixed(2);
   els.paymentTarget.textContent = targetLabel;
+  els.paymentCoverageMode.textContent =
+    coverageMode === "group" ? "一键团保" : "单人投保";
+  els.paymentPlan.textContent = `${INSURANCE_PLAN.name}（${coverageDays} 天）`;
+  els.paymentPlanDescription.textContent = `${INSURANCE_PLAN.description}；本套餐保障 ${coverageDays} 天。`;
+  els.paymentCoverageDays.textContent = `${coverageDays} 天`;
+  els.paymentInsurancePeriod.textContent = tripPeriod;
+  els.paymentTripPeriod.textContent = tripPeriod;
   els.paymentModal.hidden = false;
   document.body.style.overflow = "hidden";
   requestAnimationFrame(() => els.paymentPaid.focus());
@@ -644,8 +761,15 @@ function completePayment() {
   const payment = state.payment;
   if (!payment) return;
   const activity = getActivity(payment.activityId);
+  const groupId =
+    payment.coverageMode === "group"
+      ? `GRP-${payment.activityId}-${Date.now()}`
+      : null;
   payment.studentIndexes.forEach((studentIndex) => {
-    activity.students[studentIndex].insured = true;
+    const student = activity.students[studentIndex];
+    student.insured = true;
+    student.coverageMode = payment.coverageMode;
+    student.insuranceGroupId = groupId;
   });
   closePayment();
   showToast(`支付成功，已为 ${payment.studentIndexes.length} 名学生完成投保`);
@@ -656,8 +780,24 @@ function openRefund(activityId, studentIndex) {
   const activity = getActivity(activityId);
   const student = activity?.students[studentIndex];
   if (!activity || !student) return;
-  state.refund = { activityId, studentIndex };
-  els.confirmText.textContent = `确认将「${student.name}」办理退保吗？退保后该学生的投保状态将被取消。`;
+  const groupMembers = student.insuranceGroupId
+    ? activity.students.filter(
+        (item) =>
+          item.insured && item.insuranceGroupId === student.insuranceGroupId,
+      )
+    : [];
+  const isGroup =
+    student.coverageMode === "group" && groupMembers.length > 0;
+  const studentIndexes = isGroup
+    ? groupMembers.map((item) => item.index)
+    : [student.index];
+
+  state.refund = { activityId, studentIndex, studentIndexes, isGroup };
+  els.confirmTitle.textContent = isGroup ? "确认全部退保？" : "确认退保？";
+  els.confirmText.textContent = isGroup
+    ? `「${student.name}」属于一键投保团保。确认退保后，本团保内 ${groupMembers.length} 名学生将全部退保，且需要重新投保才能恢复保障。`
+    : `确认将「${student.name}」办理退保吗？退保后该学生的投保状态将被取消。`;
+  els.confirmSubmit.textContent = isGroup ? "确认全部退保" : "确认退保";
   els.confirmModal.hidden = false;
   document.body.style.overflow = "hidden";
   requestAnimationFrame(() => els.confirmSubmit.focus());
@@ -674,9 +814,18 @@ function completeRefund() {
   if (!refund) return;
   const activity = getActivity(refund.activityId);
   const student = activity.students[refund.studentIndex];
-  student.insured = false;
+  refund.studentIndexes.forEach((studentIndex) => {
+    const target = activity.students[studentIndex];
+    target.insured = false;
+    target.coverageMode = null;
+    target.insuranceGroupId = null;
+  });
   closeRefund();
-  showToast(`${student.name} 已办理退保`);
+  showToast(
+    refund.isGroup
+      ? `团保已整体退保，共 ${refund.studentIndexes.length} 名学生需重新投保`
+      : `${student.name} 已办理退保`,
+  );
   renderAll();
 }
 
@@ -750,10 +899,10 @@ els.tableBody.addEventListener("click", (event) => {
   if (detailButton) openDetail(detailButton.dataset.detail);
   if (insureButton) {
     const activity = getActivity(insureButton.dataset.batchInsure);
-    const pendingIndexes = activity.students
-      .filter((student) => !student.insured)
-      .map((student) => student.index);
-    openPayment(activity.id, pendingIndexes, activity.name);
+    const pendingIndexes = getBatchEligibleStudents(activity).map(
+      (student) => student.index,
+    );
+    openPayment(activity.id, pendingIndexes, `${activity.name} · 一键团保`, "group");
   }
   if (downloadButton) {
     downloadActivityPolicies(downloadButton.dataset.downloadActivity);
@@ -770,7 +919,7 @@ els.studentTableBody.addEventListener("click", (event) => {
   if (insureButton) {
     const studentIndex = Number(insureButton.dataset.insureStudent);
     const student = activity.students[studentIndex];
-    openPayment(activity.id, [studentIndex], student.name);
+    openPayment(activity.id, [studentIndex], student.name, "single");
   }
 
   if (uninsureButton) {
@@ -782,13 +931,34 @@ els.studentTableBody.addEventListener("click", (event) => {
   }
 });
 
+els.studentTableBody.addEventListener("change", (event) => {
+  const toggle = event.target.closest("[data-participation-toggle]");
+  if (!toggle) return;
+  const activity = getActivity(state.currentActivityId);
+  if (!activity) return;
+  const student = activity.students[Number(toggle.dataset.participationToggle)];
+  if (!student) return;
+  if (student.insured) {
+    toggle.checked = student.participates;
+    showToast("已投保学生请先退保后调整参与状态");
+    return;
+  }
+  student.participates = toggle.checked;
+  renderDetail();
+  showToast(
+    student.participates
+      ? `${student.name} 已设置为参与投保`
+      : `${student.name} 已设置为不参与，不会被一键投保`,
+  );
+});
+
 els.detailBatchInsure.addEventListener("click", () => {
   const activity = getActivity(state.currentActivityId);
   if (!activity) return;
-  const pendingIndexes = activity.students
-    .filter((student) => !student.insured)
-    .map((student) => student.index);
-  openPayment(activity.id, pendingIndexes, activity.name);
+  const pendingIndexes = getBatchEligibleStudents(activity).map(
+    (student) => student.index,
+  );
+  openPayment(activity.id, pendingIndexes, `${activity.name} · 一键团保`, "group");
 });
 
 els.backToList.addEventListener("click", closeDetail);

@@ -9,7 +9,7 @@
     />
     <title>投保管理｜贵州省研学综合服务网</title>
     <link rel="icon" type="image/png" href="../assets/logo-title.png" />
-    <link rel="stylesheet" href="./styles.css?v=20261028-download" />
+    <link rel="stylesheet" href="./styles.css?v=20261030-insurance-time" />
   </head>
   <body>
     <svg class="svg-sprite" aria-hidden="true">
@@ -293,12 +293,13 @@
             </div>
 
             <div class="table-wrap">
-              <table class="data-table">
+              <table class="data-table activity-table">
                 <thead>
                   <tr>
                     <th class="col-index">序号</th>
                     <th>活动名称</th>
                     <th class="col-number">已投保人数</th>
+                    <th class="col-date">投保时间</th>
                     <th class="col-number">待投保人数</th>
                     <th class="col-action">操作</th>
                   </tr>
@@ -415,6 +416,7 @@
                       <th>学生姓名</th>
                       <th>身份证号</th>
                       <th>手机号</th>
+                      <th>是否参与投保</th>
                       <th>是否投保</th>
                       <th class="col-action">操作</th>
                     </tr>
@@ -483,7 +485,34 @@
                 <dt>投保对象</dt>
                 <dd id="paymentTarget">活动学生</dd>
               </div>
+              <div>
+                <dt>投保方式</dt>
+                <dd id="paymentCoverageMode">单人投保</dd>
+              </div>
+              <div>
+                <dt>投保套餐</dt>
+                <dd id="paymentPlan">标准安心险</dd>
+              </div>
+              <div>
+                <dt>套餐说明</dt>
+                <dd class="payment-plan-description" id="paymentPlanDescription"></dd>
+              </div>
+              <div>
+                <dt>保障天数</dt>
+                <dd id="paymentCoverageDays">0 天</dd>
+              </div>
+              <div>
+                <dt>投保起止时间</dt>
+                <dd id="paymentInsurancePeriod">-</dd>
+              </div>
+              <div>
+                <dt>研学出行时间</dt>
+                <dd id="paymentTripPeriod">-</dd>
+              </div>
             </dl>
+            <p class="payment-sync-note">
+              投保周期与研学出行时间一致，保障自出行首日零时起生效。
+            </p>
             <p class="payment-hint">请使用微信或支付宝扫码支付，完成后点击“已支付”。</p>
           </div>
         </div>
@@ -511,6 +540,6 @@
 
     <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
 
-    <script src="./app.js?v=20261028-download"></script>
+    <script src="./app.js?v=20261030-insurance-time"></script>
   </body>
 </html>

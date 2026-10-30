@@ -1037,6 +1037,11 @@ svg {
   text-align: center;
 }
 
+.data-table .col-date {
+  width: 196px;
+  text-align: center;
+}
+
 .data-table .col-action {
   width: 286px;
   text-align: center;
@@ -1044,6 +1049,7 @@ svg {
 
 .data-table th.col-index,
 .data-table th.col-number,
+.data-table th.col-date,
 .data-table th.col-action {
   text-align: center;
 }
@@ -1116,6 +1122,24 @@ svg {
 
 .count-cell.is-pending strong {
   color: var(--warning);
+}
+
+.insurance-period {
+  display: inline-grid;
+  gap: 4px;
+  justify-items: center;
+}
+
+.insurance-period strong {
+  color: var(--ink-2);
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.insurance-period small {
+  color: var(--primary);
+  font-size: 9px;
 }
 
 .row-actions {
@@ -1440,11 +1464,33 @@ svg {
 }
 
 .student-table {
-  min-width: 920px;
+  min-width: 1080px;
 }
 
 .student-table .col-index {
   width: 64px;
+}
+
+.student-table .student-name {
+  width: 122px;
+}
+
+.student-table .student-id {
+  width: 188px;
+}
+
+.student-table .student-phone {
+  width: 128px;
+}
+
+.student-table .student-participation {
+  width: 132px;
+  text-align: center;
+}
+
+.student-table .student-insurance {
+  width: 110px;
+  text-align: center;
 }
 
 .student-table .col-action {
@@ -1453,6 +1499,108 @@ svg {
 
 .student-table td {
   height: 56px;
+}
+
+.insurance-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.insurance-status small {
+  padding: 3px 6px;
+  border-radius: 5px;
+  color: #607592;
+  background: #eef3fa;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.participation-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.participation-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.participation-switch__track {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  flex: 0 0 32px;
+  border-radius: 999px;
+  background: #c9d1de;
+  box-shadow: inset 0 0 0 1px rgba(56, 72, 96, 0.08);
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.participation-switch__track::after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(26, 42, 68, 0.2);
+  content: "";
+  transition: transform 160ms ease;
+}
+
+.participation-switch input:checked + .participation-switch__track {
+  background: var(--primary);
+  box-shadow: inset 0 0 0 1px rgba(34, 76, 220, 0.16);
+}
+
+.participation-switch input:checked + .participation-switch__track::after {
+  transform: translateX(14px);
+}
+
+.participation-switch input:focus-visible + .participation-switch__track {
+  outline: 2px solid rgba(44, 91, 255, 0.25);
+  outline-offset: 2px;
+}
+
+.participation-switch__labels {
+  display: inline-grid;
+  min-width: 36px;
+  color: #8a96a8;
+  font-size: 10px;
+  text-align: left;
+}
+
+.participation-switch__on,
+.participation-switch__off {
+  grid-area: 1 / 1;
+}
+
+.participation-switch__on {
+  color: var(--primary);
+  opacity: 0;
+}
+
+.participation-switch__off {
+  opacity: 1;
+}
+
+.participation-switch input:checked ~ .participation-switch__labels .participation-switch__on {
+  opacity: 1;
+}
+
+.participation-switch input:checked ~ .participation-switch__labels .participation-switch__off {
+  opacity: 0;
 }
 
 .id-number {
@@ -1692,6 +1840,26 @@ svg {
 
 .payment-details dd strong {
   color: var(--ink);
+}
+
+.payment-details .payment-plan-description {
+  max-width: 250px;
+  padding: 8px 0;
+  overflow: visible;
+  line-height: 1.65;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.payment-sync-note {
+  margin: 12px 0 0;
+  padding: 9px 11px;
+  border: 1px solid #dce6ff;
+  border-radius: 7px;
+  color: #47618e;
+  background: #f3f7ff;
+  font-size: 10px;
+  line-height: 1.55;
 }
 
 .payment-hint {
@@ -2102,7 +2270,8 @@ svg {
     padding-right: 26px;
   }
 
-  .data-table td.col-number {
+  .data-table td.col-number,
+  .data-table td.col-date {
     display: grid;
     width: auto;
     justify-items: start;
@@ -2113,17 +2282,20 @@ svg {
     text-align: left;
   }
 
-  .data-table td.col-number::before {
+  .data-table td.col-number::before,
+  .data-table td.col-date::before {
     color: #909bab;
+    content: attr(data-label);
     font-size: 9px;
   }
 
-  .data-table td.col-number:nth-child(3)::before {
-    content: "已投保人数";
+  .activity-table td.col-date {
+    align-content: center;
   }
 
-  .data-table td.col-number:nth-child(4)::before {
-    content: "待投保人数";
+  .activity-table .insurance-period {
+    justify-items: start;
+    text-align: left;
   }
 
   .data-table td.col-action {
@@ -2252,31 +2424,33 @@ svg {
     gap: 8px;
   }
 
-  .student-table td:nth-child(2) {
+  .student-table .student-name {
     grid-column: 1;
   }
 
-  .student-table td:nth-child(3)::before {
+  .student-table .student-id::before,
+  .student-table .student-phone::before,
+  .student-table .student-participation::before,
+  .student-table .student-insurance::before {
     display: block;
     margin-bottom: 3px;
     color: #909bab;
-    content: "身份证号";
+    content: attr(data-label);
     font-size: 9px;
   }
 
-  .student-table td:nth-child(4) {
+  .student-table .student-phone {
     padding-top: 3px;
   }
 
-  .student-table td:nth-child(4)::before {
-    display: block;
-    margin-bottom: 3px;
-    color: #909bab;
-    content: "手机号";
-    font-size: 9px;
+  .student-table .student-participation,
+  .student-table .student-insurance {
+    justify-items: start;
+    text-align: left;
   }
 
-  .student-table td:nth-child(5) {
+  .student-table .student-participation::before,
+  .student-table .student-insurance::before {
     justify-self: start;
   }
 
