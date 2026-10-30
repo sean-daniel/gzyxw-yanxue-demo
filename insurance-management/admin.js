@@ -1,72 +1,134 @@
-const regionOptions = [
-  { id: "gz", group: "省级", label: "贵州省", path: ["贵州省"] },
-  { id: "gy", group: "市级", label: "贵阳市", path: ["贵州省", "贵阳市"] },
-  { id: "zy", group: "市级", label: "遵义市", path: ["贵州省", "遵义市"] },
-  { id: "lps", group: "市级", label: "六盘水市", path: ["贵州省", "六盘水市"] },
-  { id: "as", group: "市级", label: "安顺市", path: ["贵州省", "安顺市"] },
-  { id: "bj", group: "市级", label: "毕节市", path: ["贵州省", "毕节市"] },
-  { id: "tr", group: "市级", label: "铜仁市", path: ["贵州省", "铜仁市"] },
+const cityGroups = [
   {
-    id: "yunyan",
-    group: "区/县级",
-    label: "云岩区",
-    path: ["贵州省", "贵阳市", "云岩区"],
+    id: "gy",
+    name: "贵阳市",
+    regions: [
+      ["gy-shi", "市辖区"],
+      ["yunyan", "云岩区"],
+      ["nanming", "南明区"],
+      ["huaxi", "花溪区"],
+      ["wudang", "乌当区"],
+      ["baiyun", "白云区"],
+      ["guanshanhu", "观山湖区"],
+      ["kaiyang", "开阳县"],
+      ["xifeng", "息烽县"],
+      ["xiuwen", "修文县"],
+      ["qingzhen", "清镇市"],
+    ],
   },
   {
-    id: "nanming",
-    group: "区/县级",
-    label: "南明区",
-    path: ["贵州省", "贵阳市", "南明区"],
+    id: "lps",
+    name: "六盘水市",
+    regions: [
+      ["lps-zhongshan", "钟山区"],
+      ["lps-shuicheng", "水城区"],
+      ["lps-liuzhi", "六枝特区"],
+      ["lps-panzhou", "盘州市"],
+    ],
   },
   {
-    id: "huaxi",
-    group: "区/县级",
-    label: "花溪区",
-    path: ["贵州省", "贵阳市", "花溪区"],
+    id: "zy",
+    name: "遵义市",
+    regions: [
+      ["zy-honghuagang", "红花岗区"],
+      ["zy-huichuan", "汇川区"],
+      ["zy-bozhou", "播州区"],
+      ["zy-tongzi", "桐梓县"],
+    ],
   },
   {
-    id: "wudang",
-    group: "区/县级",
-    label: "乌当区",
-    path: ["贵州省", "贵阳市", "乌当区"],
+    id: "as",
+    name: "安顺市",
+    regions: [
+      ["as-xixiu", "西秀区"],
+      ["as-pingba", "平坝区"],
+      ["as-puding", "普定县"],
+    ],
   },
   {
-    id: "guanshanhu",
-    group: "区/县级",
-    label: "观山湖区",
-    path: ["贵州省", "贵阳市", "观山湖区"],
+    id: "bj",
+    name: "毕节市",
+    regions: [
+      ["bj-qixingguan", "七星关区"],
+      ["bj-dafang", "大方县"],
+      ["bj-qianxi", "黔西市"],
+    ],
   },
   {
-    id: "baiyun",
-    group: "区/县级",
-    label: "白云区",
-    path: ["贵州省", "贵阳市", "白云区"],
+    id: "tr",
+    name: "铜仁市",
+    regions: [
+      ["tr-bijiang", "碧江区"],
+      ["tr-wanshan", "万山区"],
+      ["tr-jiangkuo", "江口县"],
+    ],
   },
   {
-    id: "kaiyang",
-    group: "区/县级",
-    label: "开阳县",
-    path: ["贵州省", "贵阳市", "开阳县"],
+    id: "ga",
+    name: "贵安新区",
+    regions: [["ga-direct", "贵安新区直管区"]],
   },
   {
-    id: "xifeng",
-    group: "区/县级",
-    label: "息烽县",
-    path: ["贵州省", "贵阳市", "息烽县"],
+    id: "qxn",
+    name: "黔西南布依族苗族自治州",
+    regions: [
+      ["qxn-xingyi", "兴义市"],
+      ["qxn-xingren", "兴仁市"],
+      ["qxn-anlong", "安龙县"],
+    ],
   },
   {
-    id: "xiuwen",
-    group: "区/县级",
-    label: "修文县",
-    path: ["贵州省", "贵阳市", "修文县"],
+    id: "qdn",
+    name: "黔东南苗族侗族自治州",
+    regions: [
+      ["qdn-kaili", "凯里市"],
+      ["qdn-huangping", "黄平县"],
+      ["qdn-shixing", "施秉县"],
+    ],
   },
   {
-    id: "qingzhen",
-    group: "区/县级",
-    label: "清镇市",
-    path: ["贵州省", "贵阳市", "清镇市"],
+    id: "qn",
+    name: "黔南布依族苗族自治州",
+    regions: [
+      ["qn-duyun", "都匀市"],
+      ["qn-gexin", "贵定县"],
+      ["qn-libo", "荔波县"],
+    ],
   },
 ];
+
+const provinceRegion = {
+  id: "gz",
+  group: "省级",
+  level: "province",
+  label: "贵州省",
+  path: ["贵州省"],
+};
+
+const cityRegions = cityGroups.map((city) => ({
+  id: city.id,
+  group: "市级",
+  level: "city",
+  label: city.name,
+  path: ["贵州省", city.name],
+  children: city.regions.map(([id, label]) => id),
+}));
+
+const leafRegions = cityGroups.flatMap((city) =>
+  city.regions.map(([id, label]) => ({
+    id,
+    group: "区/县级",
+    level: "leaf",
+    label,
+    path: ["贵州省", city.name, label],
+    cityId: city.id,
+  })),
+);
+
+provinceRegion.children = cityRegions.map((city) => city.id);
+
+const regionOptions = [provinceRegion, ...cityRegions, ...leafRegions];
+const regionMap = new Map(regionOptions.map((region) => [region.id, region]));
 
 const companies = [
   {
@@ -302,7 +364,9 @@ const companies = [
 const state = {
   editingCompanyId: null,
   draftPlanId: null,
-  draftRegionIds: [],
+  selectedRegionId: "nanming",
+  expandedRegionIds: new Set(["gz", "gy"]),
+  regionSearch: "",
 };
 
 const els = {
@@ -323,10 +387,14 @@ const els = {
   settingsCompanyMeta: document.querySelector("#settingsCompanyMeta"),
   settingsStatus: document.querySelector("#settingsStatus"),
   planGrid: document.querySelector("#planGrid"),
-  regionGroups: document.querySelector("#regionGroups"),
-  regionSelectedChips: document.querySelector("#regionSelectedChips"),
-  regionSelectedCount: document.querySelector("#regionSelectedCount"),
-  regionError: document.querySelector("#regionError"),
+  regionSearch: document.querySelector("#regionSearch"),
+  regionTree: document.querySelector("#regionTree"),
+  regionCoveredTotal: document.querySelector("#regionCoveredTotal"),
+  selectedRegionPath: document.querySelector("#selectedRegionPath"),
+  selectedRegionTitle: document.querySelector("#selectedRegionTitle"),
+  selectedRegionMeta: document.querySelector("#selectedRegionMeta"),
+  selectedRegionStatus: document.querySelector("#selectedRegionStatus"),
+  regionalProviderCount: document.querySelector("#regionalProviderCount"),
   toastRegion: document.querySelector("#toastRegion"),
 };
 
@@ -339,22 +407,61 @@ function getSelectedPlan(company) {
 }
 
 function getRegion(regionId) {
-  return regionOptions.find((region) => region.id === regionId);
+  return regionMap.get(regionId);
 }
 
 function getCompanyRegions(company) {
   return company.regionIds.map(getRegion).filter(Boolean);
 }
 
-function getRegionName(company) {
-  const regions = getCompanyRegions(company);
-  if (!regions.length) return "未配置区域";
-  return regions[0].path.join(" / ");
-}
-
 function pathsOverlap(pathA, pathB) {
   const commonLength = Math.min(pathA.length, pathB.length);
   return pathA.slice(0, commonLength).every((part, index) => part === pathB[index]);
+}
+
+function isPathPrefix(prefix, path) {
+  return prefix.length <= path.length && prefix.every((part, index) => part === path[index]);
+}
+
+function getSelectedRegion() {
+  return getRegion(state.selectedRegionId) || provinceRegion;
+}
+
+function getCoverageScope(company, region) {
+  return getCompanyRegions(company).find((scope) => isPathPrefix(scope.path, region.path));
+}
+
+function companyCoversRegion(company, region) {
+  return Boolean(getCoverageScope(company, region));
+}
+
+function companyOverlapsRegion(company, region) {
+  return getCompanyRegions(company).some((scope) => pathsOverlap(scope.path, region.path));
+}
+
+function getRegionProviders(region) {
+  return companies.filter((company) => company.enabled && companyCoversRegion(company, region));
+}
+
+function getRelatedRegionProviders(region) {
+  return companies.filter((company) => company.enabled && companyOverlapsRegion(company, region));
+}
+
+function getRegionStatus(company, region) {
+  if (!company.enabled) {
+    return { label: "未启用", tone: "inactive" };
+  }
+  const scope = getCoverageScope(company, region);
+  if (scope) {
+    return {
+      label: scope.id === region.id ? "本区已启用" : `由${scope.label}统保`,
+      tone: "enabled",
+    };
+  }
+  if (companyOverlapsRegion(company, region)) {
+    return { label: "部分区域覆盖", tone: "partial" };
+  }
+  return { label: "未启用", tone: "inactive" };
 }
 
 function findRegionConflicts(company, regionIds) {
@@ -370,17 +477,6 @@ function findRegionConflicts(company, regionIds) {
     );
 }
 
-function getOccupyingCompany(company, region) {
-  return companies.find(
-    (item) =>
-      item.id !== company.id &&
-      item.enabled &&
-      getCompanyRegions(item).some((existingRegion) =>
-        pathsOverlap(region.path, existingRegion.path),
-      ),
-  );
-}
-
 function formatPrice(price) {
   return Number.isInteger(price) ? String(price) : price.toFixed(1);
 }
@@ -391,14 +487,22 @@ function renderMetrics() {
   els.companyTotal.textContent = companies.length;
   els.activeCompanyTotal.textContent = activeCompanies.length;
   els.planTotal.textContent = planCount;
+  els.regionCoveredTotal.textContent = leafRegions.length;
 }
 
 function renderCompanies() {
   els.companyTableBody.innerHTML = "";
+  const selectedRegion = getSelectedRegion();
   companies.forEach((company, index) => {
     const plan = getSelectedPlan(company);
+    const regionStatus = getRegionStatus(company, selectedRegion);
     const row = document.createElement("tr");
-    row.className = company.enabled ? "is-enabled" : "";
+    row.className =
+      regionStatus.tone === "enabled"
+        ? "is-enabled"
+        : regionStatus.tone === "partial"
+          ? "is-related"
+          : "";
     row.innerHTML = `
       <td class="provider-index">${String(index + 1).padStart(2, "0")}</td>
       <td>
@@ -426,12 +530,12 @@ function renderCompanies() {
             class="toggle-switch"
             type="button"
             role="switch"
-            aria-checked="${company.enabled}"
-            aria-label="${company.enabled ? `停用${company.short}` : `启用${company.short}`}"
+            aria-checked="${regionStatus.tone === "enabled"}"
+            aria-label="${regionStatus.tone === "enabled" ? `停用${selectedRegion.label}的${company.short}投保` : `为${selectedRegion.label}启用${company.short}投保`}"
             data-toggle-company="${company.id}"
           ></button>
-          <span class="provider-status__label ${company.enabled ? "is-enabled" : ""}">
-            ${company.enabled ? "已启用" : "未启用"}
+          <span class="provider-status__label is-${regionStatus.tone}">
+            ${regionStatus.label}
           </span>
         </div>
       </td>
@@ -444,59 +548,181 @@ function renderCompanies() {
     `;
     els.companyTableBody.append(row);
   });
+
+  els.regionalProviderCount.textContent = `${companies.length} 家保险公司`;
 }
 
 function renderAll() {
   renderMetrics();
+  renderRegionTree();
+  renderSelectedRegion();
   renderCompanies();
+}
+
+function renderSelectedRegion() {
+  const region = getSelectedRegion();
+  const providers = getRegionProviders(region);
+  const relatedProviders = getRelatedRegionProviders(region);
+  els.selectedRegionPath.textContent = region.path.slice(0, -1).join(" / ") || "贵州省";
+  els.selectedRegionTitle.textContent = region.label;
+  els.selectedRegionStatus.classList.remove("is-enabled", "is-partial");
+
+  if (providers.length) {
+    els.selectedRegionMeta.textContent = `当前由 ${providers.map((company) => company.short).join("、")} 承保`;
+    els.selectedRegionStatus.textContent = providers.length > 1 ? "多家启用" : "已启用";
+    els.selectedRegionStatus.classList.add("is-enabled");
+  } else if (relatedProviders.length) {
+    els.selectedRegionMeta.textContent = `${relatedProviders.length} 家保险公司覆盖该区域下辖范围`;
+    els.selectedRegionStatus.textContent = "部分覆盖";
+    els.selectedRegionStatus.classList.add("is-partial");
+  } else {
+    els.selectedRegionMeta.textContent = "当前区域尚未配置保险公司";
+    els.selectedRegionStatus.textContent = "未配置";
+  }
+}
+
+function regionMatchesSearch(region, query) {
+  if (!query) return true;
+  if (region.label.includes(query)) return true;
+  return (region.children || [])
+    .map(getRegion)
+    .filter(Boolean)
+    .some((child) => regionMatchesSearch(child, query));
+}
+
+function getRegionBadge(region) {
+  const providers = getRegionProviders(region);
+  if (providers.length === 1) {
+    return { text: providers[0].short, tone: "enabled" };
+  }
+  if (providers.length > 1) {
+    return { text: `${providers.length} 家`, tone: "enabled" };
+  }
+  const relatedProviders = getRelatedRegionProviders(region);
+  if (relatedProviders.length) {
+    return { text: `${relatedProviders.length} 家覆盖`, tone: "partial" };
+  }
+  return { text: "未配置", tone: "empty" };
+}
+
+function renderRegionNode(region) {
+  const query = state.regionSearch.trim();
+  if (!regionMatchesSearch(region, query)) return "";
+
+  const children = (region.children || []).map(getRegion).filter(Boolean);
+  const hasChildren = children.length > 0;
+  const expanded = Boolean(query) || state.expandedRegionIds.has(region.id);
+  const selected = state.selectedRegionId === region.id;
+  const levelLabel =
+    region.level === "province" ? "省级" : region.level === "city" ? "市级" : "区 / 县";
+  const badge = getRegionBadge(region);
+
+  return `
+    <div class="region-tree-node" data-region-node="${region.id}">
+      <div class="region-tree-node__row${selected ? " is-selected" : ""}">
+        ${
+          hasChildren
+            ? `
+              <button
+                class="region-tree-node__toggle${expanded ? " is-expanded" : ""}"
+                type="button"
+                data-region-toggle="${region.id}"
+                aria-label="${expanded ? "收起" : "展开"}${region.label}"
+                aria-expanded="${expanded}"
+              >
+                <svg aria-hidden="true"><use href="#icon-chevron"></use></svg>
+              </button>
+            `
+            : '<span class="region-tree-node__spacer" aria-hidden="true"></span>'
+        }
+        <button
+          class="region-tree-node__select"
+          type="button"
+          role="treeitem"
+          data-select-region="${region.id}"
+          aria-selected="${selected}"
+        >
+          <span class="region-tree-node__dot" aria-hidden="true"></span>
+          <span class="region-tree-node__copy">
+            <strong>${region.label}</strong>
+            <small>${levelLabel}</small>
+          </span>
+          <span class="region-tree-node__badge is-${badge.tone}">${badge.text}</span>
+        </button>
+      </div>
+      ${
+        hasChildren && expanded
+          ? `<div class="region-tree-node__children">${children.map(renderRegionNode).join("")}</div>`
+          : ""
+      }
+    </div>
+  `;
+}
+
+function renderRegionTree() {
+  const hasMatch = regionMatchesSearch(provinceRegion, state.regionSearch.trim());
+  els.regionTree.innerHTML = hasMatch
+    ? renderRegionNode(provinceRegion)
+    : '<div class="region-tree-empty">没有找到匹配的区域</div>';
 }
 
 function toggleCompany(companyId) {
   const company = getCompany(companyId);
   if (!company) return;
+  const region = getSelectedRegion();
+  const exactScope = getCompanyRegions(company).find((scope) => scope.id === region.id);
+  const inheritedScope = getCoverageScope(company, region);
 
-  if (company.enabled) {
-    company.enabled = false;
-    showToast(`已停用「${company.short}」的投保服务`);
+  if (company.enabled && exactScope) {
+    company.regionIds = company.regionIds.filter((regionId) => regionId !== region.id);
+    if (!company.regionIds.length) company.enabled = false;
+    showToast(`已停用「${company.short}」在${region.label}的投保服务`);
     renderAll();
     return;
   }
 
-  if (!company.regionIds.length) {
-    showToast(`请先为「${company.short}」设置投保区域`, "error");
-    return;
-  }
-
-  const conflicts = findRegionConflicts(company, company.regionIds);
-  if (conflicts.length) {
-    const first = conflicts[0];
+  if (company.enabled && inheritedScope) {
     showToast(
-      `无法启用：${first.region.path.join(" / ")} 已由「${first.company.short}」承保`,
+      `${region.label}由「${inheritedScope.label}」统一承保，请在上层区域调整 `,
       "error",
     );
     return;
   }
 
+  const conflicts = findRegionConflicts(company, [region.id]);
+  if (conflicts.length) {
+    const first = conflicts[0];
+    showToast(
+      `无法启用：${region.path.join(" / ")} 已由「${first.company.short}」承保`,
+      "error",
+    );
+    return;
+  }
+
+  company.regionIds = company.regionIds.filter((regionId) => {
+    const scope = getRegion(regionId);
+    return !scope || !isPathPrefix(region.path, scope.path);
+  });
+  company.regionIds.push(region.id);
   company.enabled = true;
-  showToast(`已启用「${company.short}」，投保区域：${getRegionName(company)}`);
+  showToast(`已为${region.label}启用「${company.short}」投保`);
   renderAll();
 }
 
 function openSettings(companyId) {
   const company = getCompany(companyId);
   if (!company) return;
+  const regionStatus = getRegionStatus(company, getSelectedRegion());
   state.editingCompanyId = companyId;
   state.draftPlanId = company.selectedPlanId;
-  state.draftRegionIds = [...company.regionIds];
   els.settingsLogo.textContent = company.badge;
   els.settingsLogo.style.setProperty("--provider-color", company.color);
   els.settingsCompanyName.textContent = company.name;
   els.settingsCompanyMeta.textContent = `${company.code} · ${company.contact}`;
-  els.settingsStatus.textContent = company.enabled ? "当前启用中" : "当前未启用";
-  els.settingsStatus.classList.toggle("is-enabled", company.enabled);
-  hideRegionError();
+  els.settingsStatus.textContent =
+    regionStatus.tone === "enabled" ? "当前区域已启用" : "当前区域未启用";
+  els.settingsStatus.classList.toggle("is-enabled", regionStatus.tone === "enabled");
   renderPlans();
-  renderRegionSelector();
   els.settingsModal.hidden = false;
   document.body.style.overflow = "hidden";
   requestAnimationFrame(() => {
@@ -546,107 +772,9 @@ function renderPlans() {
   });
 }
 
-function renderRegionSelector() {
-  renderRegionGroups();
-  renderSelectedRegions();
-}
-
-function renderRegionGroups() {
-  const company = getCompany(state.editingCompanyId);
-  const groups = ["省级", "市级", "区/县级"];
-  const groupHints = {
-    省级: "全省范围",
-    市级: "按地市选择",
-    "区/县级": "贵阳市辖区及辖县",
-  };
-  els.regionGroups.innerHTML = "";
-
-  groups.forEach((group) => {
-    const options = regionOptions.filter((region) => region.group === group);
-    const fieldset = document.createElement("fieldset");
-    fieldset.className = "region-group";
-    fieldset.innerHTML = `
-      <legend>
-        <span>${group}</span>
-        <small>${groupHints[group]}</small>
-      </legend>
-      <div class="region-group__options">
-        ${options
-          .map((region) => {
-            const occupant = company ? getOccupyingCompany(company, region) : null;
-            return `
-              <label class="region-check${occupant ? " is-occupied" : ""}">
-                <input
-                  type="checkbox"
-                  name="insuranceRegion"
-                  value="${region.id}"
-                  ${state.draftRegionIds.includes(region.id) ? "checked" : ""}
-                  ${occupant ? "disabled" : ""}
-                />
-                <span class="region-check__box" aria-hidden="true">
-                  <svg><use href="#icon-check"></use></svg>
-                </span>
-                <span>
-                  <strong>${region.label}</strong>
-                  <small>${
-                    region.group === "省级"
-                      ? "全省"
-                      : region.group === "市级"
-                        ? "贵州省"
-                        : "贵阳市辖区"
-                  }</small>
-                </span>
-                ${
-                  occupant
-                    ? `<em class="region-check__company">${occupant.short}</em>`
-                    : ""
-                }
-              </label>
-            `;
-          })
-          .join("")}
-      </div>
-    `;
-    els.regionGroups.append(fieldset);
-  });
-}
-
-function renderSelectedRegions() {
-  const selected = state.draftRegionIds.map(getRegion).filter(Boolean);
-  els.regionSelectedCount.textContent = selected.length;
-  els.regionSelectedChips.innerHTML = selected.length
-    ? selected
-        .map(
-          (region) => `
-            <button
-              class="region-chip"
-              type="button"
-              data-remove-region="${region.id}"
-              title="移除 ${region.path.join(" / ")}"
-            >
-              <span>${region.path.join(" / ")}</span>
-              <i aria-hidden="true">×</i>
-            </button>
-          `,
-        )
-        .join("")
-    : '<span class="region-selected__empty">尚未选择投保区域，请从下方勾选</span>';
-}
-
-function showRegionError(message) {
-  els.regionError.textContent = message;
-  els.regionError.hidden = false;
-}
-
-function hideRegionError() {
-  els.regionError.textContent = "";
-  els.regionError.hidden = true;
-}
-
 function closeSettings() {
   state.editingCompanyId = null;
   state.draftPlanId = null;
-  state.draftRegionIds = [];
   els.settingsModal.hidden = true;
   document.body.style.overflow = "";
 }
@@ -654,30 +782,11 @@ function closeSettings() {
 function saveSettings() {
   const company = getCompany(state.editingCompanyId);
   if (!company || !state.draftPlanId) return;
-  if (!state.draftRegionIds.length) {
-    showRegionError("请至少选择一个投保区域后再保存。");
-    return;
-  }
-
-  if (company.enabled) {
-    const conflicts = findRegionConflicts(company, state.draftRegionIds);
-    if (conflicts.length) {
-      const first = conflicts[0];
-      showRegionError(
-        `投保区域冲突：${first.region.path.join(" / ")} 已由「${first.company.short}」承保，请调整区域。`,
-      );
-      return;
-    }
-  }
-
   company.selectedPlanId = state.draftPlanId;
-  company.regionIds = [...state.draftRegionIds];
   const plan = getSelectedPlan(company);
   closeSettings();
   renderAll();
-  showToast(
-    `「${company.short}」已配置${plan.name}，投保区域 ${company.regionIds.length} 个`,
-  );
+  showToast(`「${company.short}」已更新为${plan.name}`);
 }
 
 function showToast(message, type = "success") {
@@ -714,33 +823,36 @@ els.companyTableBody.addEventListener("click", (event) => {
 els.planGrid.addEventListener("change", (event) => {
   if (event.target.name === "insurancePlan") {
     state.draftPlanId = event.target.value;
-    hideRegionError();
   }
 });
 
-els.regionGroups.addEventListener("change", (event) => {
-  if (event.target.name !== "insuranceRegion") return;
-  const regionId = event.target.value;
-  if (event.target.checked) {
-    if (!state.draftRegionIds.includes(regionId)) {
-      state.draftRegionIds.push(regionId);
+els.regionSearch.addEventListener("input", (event) => {
+  state.regionSearch = event.target.value;
+  renderRegionTree();
+});
+
+els.regionTree.addEventListener("click", (event) => {
+  const toggleButton = event.target.closest("[data-region-toggle]");
+  if (toggleButton) {
+    const regionId = toggleButton.dataset.regionToggle;
+    if (state.expandedRegionIds.has(regionId)) {
+      state.expandedRegionIds.delete(regionId);
+    } else {
+      state.expandedRegionIds.add(regionId);
     }
-  } else {
-    state.draftRegionIds = state.draftRegionIds.filter((id) => id !== regionId);
+    renderRegionTree();
+    return;
   }
-  hideRegionError();
-  renderSelectedRegions();
-});
 
-els.regionSelectedChips.addEventListener("click", (event) => {
-  const removeButton = event.target.closest("[data-remove-region]");
-  if (!removeButton) return;
-  state.draftRegionIds = state.draftRegionIds.filter(
-    (regionId) => regionId !== removeButton.dataset.removeRegion,
-  );
-  hideRegionError();
-  renderRegionGroups();
-  renderSelectedRegions();
+  const selectButton = event.target.closest("[data-select-region]");
+  if (!selectButton) return;
+  state.selectedRegionId = selectButton.dataset.selectRegion;
+  const region = getSelectedRegion();
+  state.expandedRegionIds.add("gz");
+  if (region.cityId) state.expandedRegionIds.add(region.cityId);
+  renderRegionTree();
+  renderSelectedRegion();
+  renderCompanies();
 });
 
 els.settingsClose.addEventListener("click", closeSettings);
