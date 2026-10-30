@@ -7,6 +7,8 @@
 - GitHub Pages：<https://sean-daniel.github.io/gzyxw-yanxue-demo/>
 - 机构列表：<https://sean-daniel.github.io/gzyxw-yanxue-demo/#institutions>
 - 机构详情：<https://sean-daniel.github.io/gzyxw-yanxue-demo/#institution/2103288400209571842>
+- 分账打款管理：<https://sean-daniel.github.io/gzyxw-yanxue-demo/settlement-management/admin.html>
+- 分账打款记录：<https://sean-daniel.github.io/gzyxw-yanxue-demo/settlement-management/records.html>
 
 ## 本地运行
 

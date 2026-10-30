@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="贵州省研学综合服务网分账打款管理 Admin HTML Demo"
+    />
+    <title>分账打款管理｜贵州省研学综合服务网 Admin</title>
+    <link rel="icon" type="image/png" href="../assets/logo-title.png" />
+    <link rel="stylesheet" href="../insurance-management/styles.css" />
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="m3.5 10.6 8.5-7 8.5 7v9.1a1.3 1.3 0 0 1-1.3 1.3H4.8a1.3 1.3 0 0 1-1.3-1.3z" />
+        <path d="M9.2 21v-6.2h5.6V21" />
+      </symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
+        <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
+        <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
+        <rect x="13.5" y="13.5" width="7" height="7" rx="1" />
+      </symbol>
+      <symbol id="icon-building" viewBox="0 0 24 24">
+        <path d="M4 21V5.5A1.5 1.5 0 0 1 5.5 4H14v17M14 9h4.5A1.5 1.5 0 0 1 20 10.5V21" />
+        <path d="M2 21h20M7.5 8h3M7.5 12h3M7.5 16h3M17 13h.1M17 17h.1" />
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9.5" r="2.3" />
+        <path d="M3 20c.4-4 2.4-6 6-6s5.6 2 6 6M14.2 14.4c3.2-.6 5.3 1.3 5.8 4.3" />
+      </symbol>
+      <symbol id="icon-split" viewBox="0 0 24 24">
+        <path d="M5 4v4.5c0 2.2 1.8 4 4 4h10" />
+        <path d="m15.5 9 3.5 3.5-3.5 3.5M5 20v-4.5c0-2.2 1.8-4 4-4" />
+        <circle cx="5" cy="4" r="1.6" />
+        <circle cx="5" cy="20" r="1.6" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 3 20 6v5.9c0 4.8-3.2 7.7-8 9.1-4.8-1.4-8-4.3-8-9.1V6z" />
+        <path d="m8.6 12 2.2 2.2 4.6-4.7" />
+      </symbol>
+      <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.1" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .35 1.9l.06.06-2.85 2.85-.06-.06a1.7 1.7 0 0 0-1.9-.35 1.7 1.7 0 0 0-1 1.56V21h-4v-.09A1.7 1.7 0 0 0 8.95 19.4a1.7 1.7 0 0 0-1.9.35l-.06.06-2.85-2.85.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1H3v-4h.09A1.7 1.7 0 0 0 4.6 8.95a1.7 1.7 0 0 0-.35-1.9l-.06-.06L7.04 4.14l.06.06a1.7 1.7 0 0 0 1.9.35A1.7 1.7 0 0 0 10 3V3h4v.09a1.7 1.7 0 0 0 1 1.56 1.7 1.7 0 0 0 1.9-.35l.06-.06 2.85 2.85-.06.06a1.7 1.7 0 0 0-.35 1.9 1.7 1.7 0 0 0 1.56 1H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z" />
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M6 3h8l4 4v14H6z" />
+        <path d="M14 3v5h5M9 12h6M9 16h6" />
+      </symbol>
+      <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5.5" rx="8" ry="3" />
+        <path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m8 10 4 4 4-4" />
+      </symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+        <path d="m10 7 5 5-5 5" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m5 5 14 14M19 5 5 19" />
+      </symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 1 0-2.3 6.2" />
+        <path d="M20 5v6h-6" />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12.5 4.2 4.2L19 7" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.3" />
+        <path d="m16 16 4.2 4.2" />
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24">
+        <path d="M4 7h16M9 7V4h6v3M6.5 7l1 14h9l1-14M10 11v6M14 11v6" />
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="3.5" y="5.5" width="17" height="15" rx="2" />
+        <path d="M7.5 3v5M16.5 3v5M3.5 10h17" />
+      </symbol>
+      <symbol id="icon-bank" viewBox="0 0 24 24">
+        <path d="m3 9 9-5 9 5M4.5 10.5h15M6.5 10.5V18M10.3 10.5V18M13.7 10.5V18M17.5 10.5V18M3.5 21h17" />
+      </symbol>
+      <symbol id="icon-receipt" viewBox="0 0 24 24">
+        <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" />
+        <path d="M9 8h6M9 12h6M9 16h3" />
+      </symbol>
+      <symbol id="icon-wallet" viewBox="0 0 24 24">
+        <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H19v16H6.5A2.5 2.5 0 0 1 4 17.5z" />
+        <path d="M4 7h15M15 11h7v5h-7a2.5 2.5 0 0 1 0-5Z" />
+      </symbol>
+      <symbol id="icon-info" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 10v6M12 7h.01" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </symbol>
+    </svg>
+
+    <div class="app-shell admin-shell settlement-shell" id="appShell">
+      <aside class="sidebar" id="sidebar" aria-label="Admin 后台主导航">
+        <div class="sidebar__brand">
+          <a href="#" class="brand-mark" aria-label="贵州省研学综合服务网">
+            <span class="brand-mark__icon" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span class="brand-mark__text">贵州省研学综合服务网</span>
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <a class="nav-item" href="#" aria-label="工作台">
+            <span class="nav-item__icon"><svg><use href="#icon-home"></use></svg></span>
+            <span class="nav-item__label">工作台</span>
+          </a>
+
+          <p class="nav-section-label">组织与权限</p>
+          <a class="nav-item" href="#" aria-label="机构管理">
+            <span class="nav-item__icon"><svg><use href="#icon-building"></use></svg></span>
+            <span class="nav-item__label">机构管理</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="用户与权限">
+            <span class="nav-item__icon"><svg><use href="#icon-users"></use></svg></span>
+            <span class="nav-item__label">用户与权限</span>
+          </a>
+
+          <p class="nav-section-label">业务配置</p>
+          <a class="nav-item is-active" href="#" aria-current="page" aria-label="分账打款管理">
+            <span class="nav-item__icon"><svg><use href="#icon-split"></use></svg></span>
+            <span class="nav-item__label">分账打款管理</span>
+            <span class="nav-item__badge">NEW</span>
+          </a>
+          <a class="nav-item" href="./records.html" aria-label="分账打款记录">
+            <span class="nav-item__icon"><svg><use href="#icon-receipt"></use></svg></span>
+            <span class="nav-item__label">分账打款记录</span>
+          </a>
+          <a class="nav-item" href="../insurance-management/admin.html" aria-label="投保设置">
+            <span class="nav-item__icon"><svg><use href="#icon-shield"></use></svg></span>
+            <span class="nav-item__label">投保设置</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="系统参数">
+            <span class="nav-item__icon"><svg><use href="#icon-settings"></use></svg></span>
+            <span class="nav-item__label">系统参数</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="操作日志">
+            <span class="nav-item__icon"><svg><use href="#icon-file"></use></svg></span>
+            <span class="nav-item__label">操作日志</span>
+          </a>
+          <a class="nav-item" href="#" aria-label="数据维护">
+            <span class="nav-item__icon"><svg><use href="#icon-database"></use></svg></span>
+            <span class="nav-item__label">数据维护</span>
+          </a>
+        </nav>
+
+        <div class="sidebar__footer">
+          <span>Admin Console · v1.0.0</span>
+          <span>客服电话：0851-86726533</span>
+        </div>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar__left">
+            <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="切换侧边栏">
+              <svg><use href="#icon-menu"></use></svg>
+            </button>
+            <nav class="breadcrumb" aria-label="面包屑">
+              <a href="#">工作台</a>
+              <span>/</span>
+              <strong>分账打款管理</strong>
+            </nav>
+          </div>
+
+          <div class="topbar__right">
+            <button class="portal-button" type="button">
+              <svg><use href="#icon-grid"></use></svg>
+              <span>访问门户</span>
+            </button>
+            <span class="topbar__divider"></span>
+            <div class="org-chip">
+              <span class="org-chip__label">当前平台</span>
+              <span class="org-chip__name">贵州省研学综合服务网</span>
+              <svg><use href="#icon-chevron"></use></svg>
+            </div>
+            <div class="account">
+              <img src="../assets/logo-title.png" alt="" />
+              <span>平台超级管理员</span>
+              <svg><use href="#icon-chevron"></use></svg>
+            </div>
+          </div>
+        </header>
+
+        <div class="tabbar" aria-label="已打开页面">
+          <button class="page-tab" type="button">
+            <svg><use href="#icon-home"></use></svg>
+            <span>工作台</span>
+          </button>
+          <button class="page-tab is-active" type="button">
+            <svg><use href="#icon-split"></use></svg>
+            <span>分账打款管理</span>
+            <svg class="page-tab__close"><use href="#icon-close"></use></svg>
+          </button>
+          <button class="tabbar__refresh" type="button" aria-label="刷新页面">
+            <svg><use href="#icon-refresh"></use></svg>
+          </button>
+        </div>
+
+        <main class="content settlement-content">
+          <div class="page-heading settlement-heading">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow__dot"></span>
+                REVENUE SETTLEMENT
+              </div>
+              <h1>分账打款管理</h1>
+              <p>按区域设置平台抽成，并将抽成后的余款按比例、围绕活动开始与结束时间分多期打入基地。</p>
+            </div>
+            <div class="settlement-heading__actions">
+              <a class="secondary-button" href="./records.html">
+                <svg><use href="#icon-receipt"></use></svg>
+                打款记录
+              </a>
+              <button class="primary-button" id="saveAllButton" type="button">
+                <svg><use href="#icon-check"></use></svg>
+                保存全部配置
+              </button>
+            </div>
+          </div>
+
+          <section class="settlement-summary" aria-label="分账配置概览">
+            <article class="settlement-summary__card is-blue">
+              <span class="settlement-summary__icon"><svg><use href="#icon-building"></use></svg></span>
+              <div>
+                <p>已覆盖区县</p>
+                <strong><span id="configuredRegionTotal">0</span><small>/ <span id="regionTotal">0</span> 个</small></strong>
+              </div>
+              <span class="settlement-summary__note">省 / 市规则自动下发</span>
+            </article>
+            <article class="settlement-summary__card is-green">
+              <span class="settlement-summary__icon"><svg><use href="#icon-split"></use></svg></span>
+              <div>
+                <p>平均平台抽成</p>
+                <strong><span id="averageCommission">0</span><small>%</small></strong>
+              </div>
+              <span class="settlement-summary__note">按独立规则统计</span>
+            </article>
+            <article class="settlement-summary__card is-orange">
+              <span class="settlement-summary__icon"><svg><use href="#icon-clock"></use></svg></span>
+              <div>
+                <p>分期规则</p>
+                <strong><span id="pendingInstallmentTotal">0</span><small>笔</small></strong>
+              </div>
+              <span class="settlement-summary__note">按活动锚点自动套用</span>
+            </article>
+          </section>
+
+          <section class="settlement-workbench">
+            <aside class="region-browser" aria-labelledby="regionBrowserTitle">
+              <header class="region-browser__head">
+                <div>
+                  <span class="section-kicker">AREA DIRECTORY</span>
+                  <h2 id="regionBrowserTitle">区域与层级</h2>
+                </div>
+                <span class="region-browser__count"><strong id="regionConfiguredInline">0</strong> 已覆盖</span>
+              </header>
+
+              <label class="region-search">
+                <svg aria-hidden="true"><use href="#icon-search"></use></svg>
+                <input id="regionSearch" type="search" placeholder="搜索省 / 市 / 区县" autocomplete="off" />
+              </label>
+
+              <div class="region-tree" id="regionTree" aria-label="贵州省市与区县"></div>
+
+              <button class="add-region-button" id="addRegionButton" type="button">
+                <svg><use href="#icon-plus"></use></svg>
+                新增区县
+              </button>
+              <p class="region-browser__note">
+                仅展示贵州省区划，且本页不按租户开通过滤。缺区县时可用「新增区县」补录后再配置规则。
+              </p>
+            </aside>
+
+            <section class="region-config" aria-labelledby="selectedRegionTitle">
+              <header class="region-config__head">
+                <div class="selected-region">
+                  <span class="selected-region__mark" id="selectedRegionMark">南</span>
+                  <div>
+                    <div class="selected-region__path" id="selectedRegionPath">贵州省 / 贵阳市</div>
+                    <h2 id="selectedRegionTitle">南明区</h2>
+                    <p id="selectedRegionMeta">南明区研学实践基地 · 已启用区域分账</p>
+                  </div>
+                </div>
+                <div class="region-switch">
+                  <span id="regionSwitchLabel">规则已启用</span>
+                  <button
+                    class="toggle-switch"
+                    id="regionEnabledSwitch"
+                    type="button"
+                    role="switch"
+                    aria-checked="true"
+                    aria-label="切换当前区域分账规则"
+                  ></button>
+                </div>
+              </header>
+
+              <div class="config-grid">
+                <article class="settings-card master-account-card">
+                  <header class="settings-card__head">
+                    <span class="settings-card__icon is-cyan"><svg><use href="#icon-bank"></use></svg></span>
+                    <div>
+                      <h3>总收款账户信息</h3>
+                      <p>平台抽成款项统一进入以下总收款账户</p>
+                    </div>
+                    <button class="account-settings-button" id="masterAccountButton" type="button">
+                      <svg><use href="#icon-settings"></use></svg>
+                      设置
+                    </button>
+                  </header>
+                  <div class="master-account-summary">
+                    <div class="master-account-owner">
+                      <span class="master-account-owner__bank">
+                        <svg><use href="#icon-bank"></use></svg>
+                      </span>
+                      <div>
+                        <span>账户名称</span>
+                        <strong id="masterAccountName">贵州省研学综合服务网</strong>
+                      </div>
+                    </div>
+                    <div>
+                      <span>收款账户</span>
+                      <strong id="masterAccountNumber">2402 **** **** 8619</strong>
+                    </div>
+                    <div>
+                      <span>开户银行</span>
+                      <strong id="masterAccountBank">中国工商银行贵阳中华路支行</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="settings-card commission-card">
+                  <header class="settings-card__head">
+                    <span class="settings-card__icon is-blue"><svg><use href="#icon-split"></use></svg></span>
+                    <div>
+                      <h3>平台抽成规则</h3>
+                      <p>支持省级统一下发、市级下发和区县独立配置</p>
+                    </div>
+                    <span class="config-state" id="commissionState">独立配置</span>
+                  </header>
+
+                  <div class="commission-editor">
+                    <label class="commission-input" for="commissionInput">
+                      <span>平台抽成比例</span>
+                      <span class="commission-input__control">
+                        <input id="commissionInput" type="number" min="0" max="100" step="0.5" inputmode="decimal" />
+                        <i>%</i>
+                      </span>
+                    </label>
+                    <p>调整后，基地可分配金额会实时更新</p>
+                  </div>
+
+                  <input
+                    class="commission-range"
+                    id="commissionRange"
+                    type="range"
+                    min="0"
+                    max="50"
+                    step="0.5"
+                    aria-label="平台抽成比例"
+                  />
+                  <div class="range-scale" aria-hidden="true">
+                    <span>0%</span>
+                    <span>10%</span>
+                    <span>20%</span>
+                    <span>30%</span>
+                    <span>40%</span>
+                    <span>50%</span>
+                  </div>
+
+                  <div class="money-preview">
+                    <div>
+                      <span>结算基准</span>
+                      <strong>¥100,000</strong>
+                    </div>
+                    <span class="money-preview__operator">−</span>
+                    <div>
+                      <span>平台抽成</span>
+                      <strong class="is-blue" id="commissionAmount">¥10,000</strong>
+                    </div>
+                    <span class="money-preview__operator">=</span>
+                    <div class="money-preview__result">
+                      <span>基地可分配</span>
+                      <strong id="basePayableAmount">¥90,000</strong>
+                    </div>
+                  </div>
+
+                </article>
+              </div>
+
+              <article class="installments-card" aria-labelledby="installmentsTitle">
+                <header class="installments-card__head">
+                  <div>
+                    <h3 id="installmentsTitle">基地分期打款</h3>
+                    <p>选择活动时间锚点并设置正负天数，执行时按活动实际时间套用规则</p>
+                  </div>
+                  <div class="installments-card__summary">
+                    <span>比例合计</span>
+                    <strong id="installmentTotal">100%</strong>
+                  </div>
+                </header>
+
+                <div class="installment-table">
+                  <div class="installment-table__head" aria-hidden="true">
+                    <span>期次</span>
+                    <span>打款比例</span>
+                    <span>时间锚点</span>
+                    <span>调整天数</span>
+                    <span>规则说明</span>
+                    <span>操作</span>
+                  </div>
+                  <div class="installment-rows" id="installmentRows"></div>
+                </div>
+
+                <footer class="installments-card__foot">
+                  <button class="add-installment-button" id="addInstallmentButton" type="button">
+                    <svg><use href="#icon-plus"></use></svg>
+                    新增一期
+                  </button>
+                  <div class="installment-validation" id="installmentValidation">
+                    <span class="validation-dot"></span>
+                    <span>分期比例合计为 100%，可直接保存</span>
+                  </div>
+                </footer>
+              </article>
+
+              <footer class="region-config__foot">
+                <span>
+                  <svg><use href="#icon-info"></use></svg>
+                  修改仅影响保存后新产生的结算单，已生成打款计划不受影响。
+                </span>
+                <span>省级 / 市级规则保存后自动同步至全部下辖区域</span>
+              </footer>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal-backdrop settlement-modal-backdrop" id="addRegionModal" hidden>
+      <section class="settlement-modal" role="dialog" aria-modal="true" aria-labelledby="addRegionTitle">
+        <header class="settlement-modal__head">
+          <div>
+            <span class="modal-kicker">ADD REGION</span>
+            <h2 id="addRegionTitle">新增区县</h2>
+            <p>补录区划后可单独设置该区域的抽成与分期规则。</p>
+          </div>
+          <button class="icon-button" id="addRegionClose" type="button" aria-label="关闭">
+            <svg><use href="#icon-close"></use></svg>
+          </button>
+        </header>
+        <form class="settlement-modal__body" id="addRegionForm">
+          <label class="modal-field">
+            <span>所属地市</span>
+            <select id="newRegionCity"></select>
+          </label>
+          <label class="modal-field">
+            <span>区县名称</span>
+            <input id="newRegionName" type="text" maxlength="20" placeholder="例如：双龙航空港经济区" required />
+          </label>
+          <p class="modal-form-note">
+            <svg><use href="#icon-info"></use></svg>
+            新增区县默认使用 10% 抽成与活动结束后一次性打款模板。
+          </p>
+        </form>
+        <footer class="settlement-modal__foot">
+          <button class="ghost-button" id="addRegionCancel" type="button">取消</button>
+          <button class="primary-button" id="addRegionSubmit" type="submit" form="addRegionForm">
+            <svg><use href="#icon-plus"></use></svg>
+            新增并配置
+          </button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="modal-backdrop settlement-modal-backdrop" id="masterAccountModal" hidden>
+      <section
+        class="settlement-modal master-account-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="masterAccountModalTitle"
+      >
+        <header class="settlement-modal__head">
+          <div>
+            <span class="modal-kicker">MASTER ACCOUNT</span>
+            <h2 id="masterAccountModalTitle">设置总收款账户</h2>
+            <p>平台抽成所得统一汇入该账户，请确保账户信息准确。</p>
+          </div>
+          <button class="icon-button" id="masterAccountClose" type="button" aria-label="关闭">
+            <svg><use href="#icon-close"></use></svg>
+          </button>
+        </header>
+        <form class="settlement-modal__body master-account-form" id="masterAccountForm">
+          <label class="modal-field">
+            <span>账户名称</span>
+            <input id="masterAccountNameInput" type="text" maxlength="40" required />
+          </label>
+          <label class="modal-field">
+            <span>收款账号</span>
+            <input id="masterAccountNumberInput" type="text" maxlength="32" required />
+          </label>
+          <label class="modal-field">
+            <span>开户银行</span>
+            <input id="masterAccountBankInput" type="text" maxlength="50" required />
+          </label>
+          <p class="modal-form-note">
+            <svg><use href="#icon-info"></use></svg>
+            总收款账户仅用于承接平台抽成，不会影响各区域基地的分期打款规则。
+          </p>
+        </form>
+        <footer class="settlement-modal__foot">
+          <button class="ghost-button" id="masterAccountCancel" type="button">取消</button>
+          <button class="primary-button" id="masterAccountSubmit" type="submit" form="masterAccountForm">
+            <svg><use href="#icon-check"></use></svg>
+            保存账户
+          </button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>
