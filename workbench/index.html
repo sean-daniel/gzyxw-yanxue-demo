@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="贵州省研学综合服务网教育局工作台高保真静态原型"
+    />
+    <title>工作台 - 贵州省研学综合服务网</title>
+    <link rel="icon" type="image/png" href="assets/images/sidebar-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar" aria-label="管理导航">
+      <a class="sidebar-logo-link" href="index.html" aria-label="贵州省研学综合服务网工作台">
+        <img class="sidebar-logo" src="assets/images/sidebar-logo.png" alt="贵州省研学综合服务网" />
+      </a>
+
+      <div class="sidebar-scroll">
+        <nav class="sidebar-menu" aria-label="功能菜单">
+          <a class="menu-item active" href="index.html" aria-current="page">
+            <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-home"></use></svg>
+            <span class="menu-text">工作台</span>
+          </a>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-system"></use></svg>
+              <span class="menu-text">审核管理</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="基地审核">基地审核</a>
+              <a class="submenu-link" href="#" data-demo-route="课程审核">课程审核</a>
+              <a class="submenu-link" href="#" data-demo-route="教育实践计划审核">教育实践计划审核</a>
+              <a class="submenu-link" href="#" data-demo-route="研学出行">研学出行</a>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-server"></use></svg>
+              <span class="menu-text">大屏</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="教育局端">教育局端</a>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-category"></use></svg>
+              <span class="menu-text">出行管理</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="出行申报">出行申报</a>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-tsgl"></use></svg>
+              <span class="menu-text">评价管理</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="督办管理">督办管理</a>
+              <a class="submenu-link" href="#" data-demo-route="评价信息">评价信息</a>
+            </div>
+          </div>
+
+          <a class="menu-item" href="#" data-demo-route="学校管理">
+            <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-company"></use></svg>
+            <span class="menu-text">学校管理</span>
+          </a>
+
+          <a class="menu-item" href="#" data-demo-route="基地管理">
+            <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-jg"></use></svg>
+            <span class="menu-text">基地管理</span>
+          </a>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-education"></use></svg>
+              <span class="menu-text">宣传专栏</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="宣传文章">宣传文章</a>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-monitor"></use></svg>
+              <span class="menu-text">数据报表</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="投诉数据统计">投诉数据统计</a>
+              <a class="submenu-link" href="#" data-demo-route="研学数据统计">研学数据统计</a>
+              <a class="submenu-link" href="#" data-demo-route="基地数据统计">基地数据统计</a>
+              <a class="submenu-link" href="#" data-demo-route="机构数据统计">机构数据统计</a>
+            </div>
+          </div>
+
+          <div class="menu-group">
+            <button class="menu-item menu-toggle" type="button" aria-expanded="false">
+              <svg class="menu-icon" aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-documentation"></use></svg>
+              <span class="menu-text">监管查询</span>
+              <svg class="menu-arrow" aria-hidden="true"><path d="m7 9 5 5 5-5" /></svg>
+            </button>
+            <div class="submenu">
+              <a class="submenu-link" href="#" data-demo-route="出行审批查询">出行审批查询</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <span>v2026.1031.01</span>
+        <span>客服电话: 0851-86726533</span>
+      </div>
+    </aside>
+
+    <div class="main-container" id="mainContainer">
+      <header class="fixed-header">
+        <div class="navbar">
+          <button class="hamburger-button" id="sidebarToggle" type="button" aria-label="收起菜单" aria-expanded="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M8 12h12M4 18h16" />
+              <path d="m14.5 4.5-2 2 2 2" />
+            </svg>
+          </button>
+          <nav class="breadcrumb" aria-label="面包屑">
+            <span>工作台</span>
+          </nav>
+
+          <div class="header-actions">
+            <button class="header-icon-button fullscreen-button" id="fullscreenButton" type="button" aria-label="全屏显示" title="全屏显示">
+              <svg aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-fullscreen"></use></svg>
+            </button>
+            <button class="header-icon-button text-size-button" id="textSizeButton" type="button" aria-label="界面字号" title="界面字号">
+              <svg aria-hidden="true"><use href="assets/icons/icons-sprite.svg#icon-size"></use></svg>
+            </button>
+            <span class="header-divider" aria-hidden="true"></span>
+            <a class="portal-entry" href="../index.html" target="_blank" rel="noreferrer" aria-label="访问门户">
+              <img src="assets/images/portal-button.png" alt="访问门户" />
+            </a>
+            <span class="header-divider" aria-hidden="true"></span>
+            <button class="account-button" id="accountButton" type="button" aria-haspopup="menu" aria-expanded="false">
+              <img class="user-avatar" src="assets/images/avatar.png" alt="" />
+              <span class="user-name">安顺市教育局</span>
+              <svg class="account-arrow" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="m4 6 4 4 4-4" />
+              </svg>
+            </button>
+            <div class="account-menu" id="accountMenu" role="menu" hidden>
+              <div class="account-menu-head">
+                <img src="assets/images/avatar.png" alt="" />
+                <div>
+                  <strong>安顺市教育局</strong>
+                  <span>教育局管理账号</span>
+                </div>
+              </div>
+              <button type="button" role="menuitem" data-demo-action="账号信息">账号信息</button>
+              <button type="button" role="menuitem" data-demo-action="安全设置">安全设置</button>
+              <button class="danger" type="button" role="menuitem" data-demo-action="退出登录">退出登录</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tags-view" aria-label="已打开页面">
+          <a class="page-tab active" href="index.html" aria-current="page">工作台</a>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="dashboard">
+          <section class="overview-section" aria-label="教育局数据概览">
+            <div class="overview-cards">
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/stat-school.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">学校白名单</span>
+                  <div class="stat-number"><strong>182</strong><span>间</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/info-schools.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">学校数量</span>
+                  <div class="stat-number"><strong>182</strong><span>间</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/info-vehicles.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">出行活动数量</span>
+                  <div class="stat-number"><strong>7</strong><span>个</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/info-people.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">出行学生总量</span>
+                  <div class="stat-number"><strong>5025</strong><span>人</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/stat-trip-teacher.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">出行教师数量</span>
+                  <div class="stat-number"><strong>326</strong><span>人</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/stat-course.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">课程数量</span>
+                  <div class="stat-number"><strong>158</strong><span>门</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/stat-base.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">基地数量</span>
+                  <div class="stat-number"><strong>30</strong><span>个</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/stat-mentor.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">导师数量</span>
+                  <div class="stat-number"><strong>357</strong><span>人</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/info-vehicles.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">车辆数量</span>
+                  <div class="stat-number"><strong>27</strong><span>辆</span></div>
+                </div>
+              </article>
+              <article class="stat-card">
+                <img class="stat-icon" src="assets/images/info-drivers.png" alt="" />
+                <div class="stat-content">
+                  <span class="stat-label">司机数量</span>
+                  <div class="stat-number"><strong>33</strong><span>人</span></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="map-info-row" aria-label="研学地图与研学信息">
+            <article class="map-card">
+              <div class="section-header map-header">
+                <h2>研学地图</h2>
+                <button class="more-link" type="button" data-demo-action="查看更多研学地图">
+                  更多
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+                </button>
+              </div>
+              <div class="map-canvas is-loading" id="mapCanvas" role="region" aria-label="贵州省研学基地分布地图">
+                <div class="map-fallback" role="img" aria-label="贵州省研学基地静态分布图"></div>
+                <div class="research-map" id="researchMap" aria-hidden="true"></div>
+                <div class="map-feedback" id="mapFeedback" role="status" aria-live="polite">
+                  <span class="map-feedback-spinner" aria-hidden="true"></span>
+                  <span class="map-feedback-text">地图加载中…</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel info-panel">
+              <div class="section-header">
+                <h2>研学信息</h2>
+                <button class="more-link" type="button" data-demo-action="查看更多研学信息">
+                  更多
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+                </button>
+              </div>
+              <div class="ongoing-list">
+                <div class="ongoing-item">
+                  <div class="ongoing-content">
+                    <p class="ongoing-text">经开区张坪中学研学活动 <span>|</span> 贵州黔风驿文化旅游发展有限公司</p>
+                    <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                      <div class="progress-track"><span style="width: 0%"></span></div>
+                      <em>0%</em>
+                    </div>
+                  </div>
+                </div>
+                <div class="ongoing-item">
+                  <div class="ongoing-content">
+                    <p class="ongoing-text">普定县第四小学 <span>|</span> 贵州省桥梁科普教育博物馆</p>
+                    <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="12.5">
+                      <div class="progress-track"><span style="width: 12.5%"></span></div>
+                      <em>12.5%</em>
+                    </div>
+                  </div>
+                </div>
+                <div class="ongoing-item">
+                  <div class="ongoing-content">
+                    <p class="ongoing-text">桥见未来.惠通世界 <span>|</span> 贵州省桥梁科普教育博物馆</p>
+                    <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="6">
+                      <div class="progress-track"><span style="width: 6%"></span></div>
+                      <em>6%</em>
+                    </div>
+                  </div>
+                </div>
+                <div class="ongoing-item">
+                  <div class="ongoing-content">
+                    <p class="ongoing-text">普定县思源实验学校“探黔中文明根脉 承长征精神薪火” <span>|</span> 贵州省桥梁科普教育博物馆</p>
+                    <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                      <div class="progress-track"><span style="width: 50%"></span></div>
+                      <em>50%</em>
+                    </div>
+                  </div>
+                </div>
+                <div class="ongoing-item">
+                  <div class="ongoing-content">
+                    <p class="ongoing-text">普定县思源实验学校“桥见未来 看中国奋斗” <span>|</span> 贵州省桥梁科普教育博物馆</p>
+                    <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                      <div class="progress-track"><span style="width: 50%"></span></div>
+                      <em>50%</em>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="metrics-row" aria-label="研学主题与待办事项">
+            <article class="panel topic-panel">
+              <div class="section-header">
+                <h2>研学主题</h2>
+              </div>
+              <div class="topic-chart" id="topicChart" role="img" aria-label="研学主题环形图，总团数 11"></div>
+            </article>
+
+            <article class="panel todo-panel">
+              <div class="section-header">
+                <h2>待办事项</h2>
+                <button class="more-link" type="button" data-demo-action="查看更多待办">
+                  更多
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+                </button>
+              </div>
+              <div class="todo-content">
+                <div class="date-display">
+                  <div class="date-display-top">
+                    <h3 class="current-date" id="currentDate">2026年11月02日</h3>
+                    <button class="back-today" id="backToday" type="button">回到今日</button>
+                  </div>
+                  <div class="calendar-nav">
+                    <button class="calendar-arrow prev" id="prevWeek" type="button" aria-label="上一周">
+                      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10 3-5 5 5 5" /></svg>
+                    </button>
+                    <div class="calendar-main">
+                      <div class="week-days" aria-hidden="true">
+                        <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+                      </div>
+                      <div class="week-dates" id="weekDates"></div>
+                    </div>
+                    <button class="calendar-arrow next" id="nextWeek" type="button" aria-label="下一周">
+                      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="todo-list">
+                  <div class="todo-item">
+                    <span class="todo-bullet" aria-hidden="true"></span>
+                    <p>2026秋第六小学研学活动 <span>|</span> 贵州省桥梁科普教育博物馆 <span>|</span> 11-02</p>
+                  </div>
+                  <div class="todo-item">
+                    <span class="todo-bullet" aria-hidden="true"></span>
+                    <p>“锦绣中国，壮美瀑乡”喀斯特然山水 <span>|</span> 安顺市民安教育发展有限公司 <span>|</span> 10-27</p>
+                  </div>
+                  <div class="todo-item">
+                    <span class="todo-bullet" aria-hidden="true"></span>
+                    <p>锦绣中国·壮美瀑乡——卡斯特自然山水 <span>|</span> 贵州夜郎洞旅游有限责任公司 <span>|</span> 10-27</p>
+                  </div>
+                  <div class="todo-item">
+                    <span class="todo-bullet" aria-hidden="true"></span>
+                    <p>普定县第二中学“桥见未来・看中国奋斗”研学活动 <span>|</span> 贵州省桥梁科普教育博物馆 <span>|</span> 10-19</p>
+                  </div>
+                  <div class="todo-item">
+                    <span class="todo-bullet" aria-hidden="true"></span>
+                    <p>普定县第二中学“探黔中文明根脉·承长征精神薪火”研学活动 <span>|</span> 贵州省桥梁科普教育博物馆 <span>|</span> 10-19</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </section>
+
+          <section class="insight-row" aria-label="投诉、整改与预警">
+            <article class="panel complaint-panel">
+              <div class="section-header">
+                <h2>投诉信息</h2>
+              </div>
+              <div class="status-summary">
+                <article class="status-card">
+                  <img src="assets/images/complaint-pending.png" alt="" />
+                  <div><strong>0</strong><span>待处理投诉</span></div>
+                </article>
+                <article class="status-card">
+                  <img src="assets/images/complaint-processing.png" alt="" />
+                  <div><strong>0</strong><span>处理中投诉</span></div>
+                </article>
+                <article class="status-card">
+                  <img src="assets/images/complaint-closed.png" alt="" />
+                  <div><strong>0</strong><span>已关闭投诉</span></div>
+                </article>
+              </div>
+              <div class="empty-state">
+                <img src="assets/images/empty-state.svg" alt="" />
+                <p>暂无数据</p>
+              </div>
+            </article>
+
+            <article class="panel complaint-panel">
+              <div class="section-header">
+                <h2>整改信息</h2>
+              </div>
+              <div class="status-summary">
+                <article class="status-card">
+                  <img src="assets/images/rectify-pending.png" alt="" />
+                  <div><strong>0</strong><span>待处理整改</span></div>
+                </article>
+                <article class="status-card">
+                  <img src="assets/images/rectify-processing.png" alt="" />
+                  <div><strong>0</strong><span>处理中整改</span></div>
+                </article>
+                <article class="status-card">
+                  <img src="assets/images/rectify-closed.png" alt="" />
+                  <div><strong>0</strong><span>已关闭整改</span></div>
+                </article>
+              </div>
+              <div class="empty-state">
+                <img src="assets/images/empty-state.svg" alt="" />
+                <p>暂无数据</p>
+              </div>
+            </article>
+
+            <article class="panel warning-panel">
+              <div class="section-header">
+                <h2>预警信息</h2>
+                <button class="more-link" type="button" data-demo-action="查看更多预警信息">
+                  更多
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+                </button>
+              </div>
+              <div class="warning-list">
+                <div class="empty-state">
+                  <img src="assets/images/empty-state.svg" alt="" />
+                  <p>暂无数据</p>
+                </div>
+              </div>
+            </article>
+
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="assets/vendor/echarts.min.js"></script>
+    <script src="assets/data/scenic-bases.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
